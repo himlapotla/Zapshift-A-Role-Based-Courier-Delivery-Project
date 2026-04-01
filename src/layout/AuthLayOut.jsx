@@ -11,7 +11,7 @@ const AuthLayOut = () => {
             <div className='w-6/12 mx-auto'>
                 <Logo> </Logo>
 
-                <div className='flex '>
+                <div className='flex items-center py-12'>
                     <div className='flex-1'>
                         <Outlet> </Outlet>
                     </div>

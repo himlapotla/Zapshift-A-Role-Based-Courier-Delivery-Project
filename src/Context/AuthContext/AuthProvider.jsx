@@ -11,13 +11,13 @@ const AuthProvider = ( {children} ) => {
         // createUserWithEmailAndPassword, to that component which is calling.
     }
 
-    const signIn = (email, password) => {
+    const signInUser = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     const authInfo = {
         registerUser,
-        signIn,
+        signInUser,
 
     }
 
