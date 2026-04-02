@@ -2,6 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import UseAuth from '../../../hooks/UseAuth'
 import { Link } from 'react-router'
+import SocialLogin from '../SocialLogin/SocialLogin'
 
 const Login = () => {
 
@@ -39,10 +40,12 @@ const Login = () => {
                 <input type="password" {...register('password')} className="input" placeholder="Password" />
 
                 <div><a className="link link-hover">Forgot password?</a></div>
-                <button className="btn btn-neutral mt-4">Login</button>
+                <button className="bg-[#caeb66]  border-none btn mt-4"> Login </button>
                 <p> Don't have an account? <span  className='text-blue-400 underline'> <Link to={'/register'}> Register here.. </Link> </span> </p>
               </fieldset>
             </form>
+
+            <SocialLogin> </SocialLogin>
 
           </div>
         </div>

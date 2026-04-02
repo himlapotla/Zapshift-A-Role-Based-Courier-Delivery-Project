@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import { AuthContext } from '../../../Context/AuthContext/AuthContext'
 import useAuth from '../../../hooks/UseAuth'
 import { Link } from 'react-router'
+import SocialLogin from '../SocialLogin/SocialLogin'
 
 const Register = () => {
 
@@ -39,10 +40,13 @@ const Register = () => {
                             {errors.password?.type == 'minLength' && <p className='text-red-500'> Password Must Be 6 Chatacter. </p>}
                             {errors.password?.type == 'pattern' && <p className='text-red-500'> Password Must Contain special Charecter. </p>}
 
-                            <button className="btn btn-neutral mt-4"> Rgister </button>
+                            <button className="bg-[#caeb66]  border-none btn mt-4"> Rgister </button>
                             <p> Already have an account? <span  className='text-blue-400 underline'> <Link to={'/login'}> Login here.. </Link> </span> </p>
                         </fieldset>
                     </form>
+
+                    <SocialLogin> </SocialLogin>
+
                 </div>
             </div>
         </div>
