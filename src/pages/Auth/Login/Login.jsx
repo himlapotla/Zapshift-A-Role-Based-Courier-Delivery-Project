@@ -7,7 +7,7 @@ import SocialLogin from '../SocialLogin/SocialLogin'
 const Login = () => {
 
   const { register, handleSubmit, errors } = useForm()
-  const { signInUser } = UseAuth() 
+  const { signInUser } = UseAuth()
 
   const handleLogin = (data) => {
 
