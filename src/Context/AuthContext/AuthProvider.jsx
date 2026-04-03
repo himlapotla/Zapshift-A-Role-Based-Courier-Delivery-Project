@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AuthContext } from './AuthContext'
-import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth'
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth'
 import { auth } from '../../firebase/firebase.init'
 
 const googleProvider = new GoogleAuthProvider()
@@ -11,6 +11,10 @@ const AuthProvider = ( {children} ) => {
 
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
+
+    console.log(user);
+    
+    console.log('component renders..')
 
     const registerUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
@@ -25,6 +29,18 @@ const AuthProvider = ( {children} ) => {
     const googleUser = () => {
         return signInWithPopup(auth, googleProvider)
     }
+
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser)
+            setLoading(false)
+        })
+        return () => {
+            unSubscribe()
+        }
+    }, [])
+    // Empty dependency array means:
+    // This runs only once when the component mounts (first time loads).
 
     const authInfo = {
         user,

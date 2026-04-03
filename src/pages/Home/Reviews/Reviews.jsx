@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
 
 const Reviews = ({ reviewsPromise }) => {
   const reviews = use(reviewsPromise)
-  console.log((reviews))
+  // console.log((reviews))
 
   return (
     <div className='pb-20'>
