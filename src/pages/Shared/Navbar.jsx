@@ -7,6 +7,7 @@ const Navbar = () => {
     const Links = <>
         <li> <NavLink to={'/about'}> Submenu11 </NavLink> </li>
         <li> <NavLink to={'/about'}> About Us </NavLink> </li>
+        <li> <NavLink to={'/send-parcel'}> Send Parcel </NavLink> </li>
         <li> <NavLink to={'/coverage'}> Coverage </NavLink> </li>
     </>
 
@@ -49,7 +50,7 @@ const Navbar = () => {
                         <Link to={'/login'} className="btn">Log In</Link>
                     }
 
-                    <Link to={'/beRider'} className='btn ml-2 bg-[#caeb66]'> Be a Rider </Link>
+                    <Link to={'/rider'} className='btn ml-2 bg-[#caeb66]'> Be a Rider </Link>
                 </div>
             </div>
         </div>

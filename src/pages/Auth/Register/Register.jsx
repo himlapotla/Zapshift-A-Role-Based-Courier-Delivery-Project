@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { AuthContext } from '../../../Context/AuthContext/AuthContext'
 import useAuth from '../../../hooks/UseAuth'
-import { Link } from 'react-router'
+import { Link, useLocation, useNavigate } from 'react-router'
 import SocialLogin from '../SocialLogin/SocialLogin'
 import axios from 'axios'
 
@@ -11,23 +11,25 @@ const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const { registerUser, updateUserProfile } = useAuth()
 
+    const location = useLocation()
+    console.log(location)
+    const navigate = useNavigate()
+
     const handleRegistration = (data) => {
 
         const profileImage = data.photoooo[0]
 
         registerUser(data.email, data.password)
             .then(result => {
-                console.log(result.user)
 
                 const imageApiUrl = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_image_host}`
                 const formData = new FormData()
+                // FormData is a built-in browser API that creates a key-value container specifically designed to send files and data via HTTP 
                 formData.append('image', profileImage)
 
                 axios.post(imageApiUrl, formData)
                     .then(res => {
                         const newProfilePhoto = res.data.data.url
-                        console.log(newProfilePhoto);
-                        
 
                         const profile = {
                             displayName: data.name,
@@ -39,9 +41,9 @@ const Register = () => {
                             console.log('useer profile updated Done..');
                         })
                         .catch( err => console.log(err))
-
                     })
 
+                navigate(location.state || '/')
             })
             .catch(error => {
                 console.log(error.message)

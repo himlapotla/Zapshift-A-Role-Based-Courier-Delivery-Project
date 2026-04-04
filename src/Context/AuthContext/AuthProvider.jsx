@@ -11,8 +11,9 @@ const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
+    const [userLocation, setUserLocation] = useState(null)
 
-    console.log('first', user)
+    console.log(userLocation)
 
     const registerUser = (email, password) => {
         setLoading(true)
@@ -46,15 +47,15 @@ const AuthProvider = ({ children }) => {
             setLoading(false)
 
             if (user) {
-                console.log('there is user..', user)
+                // console.log('there is user..', user)
                 // Because[] means "run this effect only once, never re-run it".
                 // When the effect never re - runs, the callback is never recreated.And since the callback is never recreated, it always holds onto the old user = null it got on mount.
             }
             else {
-                console.log('there is no user..', user)
+                // console.log('there is no user..', user)
             }
 
-            {currentUser ? console.log('user exist') : console.log('user doesnt exist')}
+            // {currentUser ? console.log('user exist') : console.log('user doesnt exist')}
         })
 
         return () => {
@@ -74,6 +75,8 @@ const AuthProvider = ({ children }) => {
         googleUser,
         logOutUser,
         updateUserProfile,
+        userLocation,
+        setUserLocation,
     }
 
     return (
