@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { AuthContext } from './AuthContext'
-import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth'
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
 import { auth } from '../../firebase/firebase.init'
 
 const googleProvider = new GoogleAuthProvider()
@@ -20,7 +20,7 @@ const AuthProvider = ({ children }) => {
         // this means  register will return a promise that is comming from
         // createUserWithEmailAndPassword, to that component which is calling.
     }
-
+    
     const signInUser = (email, password) => {
         setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
@@ -34,6 +34,10 @@ const AuthProvider = ({ children }) => {
     const logOutUser = () => {
         setLoading(true)
         return signOut(auth)
+    }
+
+    const updateUserProfile = (profile) => {
+        return updateProfile(auth.currentUser, profile)
     }
 
     useEffect(() => {
@@ -56,7 +60,7 @@ const AuthProvider = ({ children }) => {
         return () => {
             unSubscribe()
         }
-        
+
     }, [])
     // Empty dependency array means:
     // This runs only once when the component mounts (first time loads).
@@ -69,6 +73,7 @@ const AuthProvider = ({ children }) => {
         signInUser,
         googleUser,
         logOutUser,
+        updateUserProfile,
     }
 
     return (
