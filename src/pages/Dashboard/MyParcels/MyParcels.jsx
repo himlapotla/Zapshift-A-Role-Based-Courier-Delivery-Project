@@ -77,7 +77,7 @@ const MyParcels = () => {
                                     {
                                         parcell.paymentStatus === 'paid' ?
                                             <span className='text-green-500'> Pain </span> :
-                                            <Link>
+                                            <Link to={`/dashboard/payment/${p._id}`}>
                                                 <button className='btn btn-sm bg-[#caeb66]'> Pay </button>
                                             </Link>
                                     }
