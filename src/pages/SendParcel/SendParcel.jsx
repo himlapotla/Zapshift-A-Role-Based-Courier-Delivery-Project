@@ -26,8 +26,6 @@ const SendParcel = () => {
 
     const handleSendParcel = (data) => {
 
-        console.log(data)
-
         let cost = 0
         let isSameDistrict = false
         let extraWeight = data.parcelWeight - 3
@@ -50,7 +48,6 @@ const SendParcel = () => {
             else {
                 cost = 150
             }
-
         }
 
         if (data.parcelType === 'non-document' && data.parcelWeight > 3) {
@@ -62,6 +59,8 @@ const SendParcel = () => {
             }
         }
 
+        data.cost = cost
+
         Swal.fire({
             title: "Are you agree with the cost?",
             text: `Your total cost - ${cost}tk`,
@@ -70,21 +69,20 @@ const SendParcel = () => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, I agree!"
-        }).then((result) => {
+        })
+        .then((result) => {
             if (result.isConfirmed) {
-                axiosSecurity.post('/parcels', data)
+                axiosSecurity.post('/post-parcels', data)
                 .then(res => {
                     console.log('after saving the parcel data', res.data)
                 })
             }
         });
         // Axios automatically does two things behind the scenes: Serializes your data object → JSON.stringify(data) → turns it into a JSON string. Sets the header → Content-Type: application/json automatically
-
     }
 
     return (
         <div>
-
             <h2 className='text-4xl font-bold'> Send A Parcel </h2>
 
             <form className='pb-10 text-black' onSubmit={handleSubmit(handleSendParcel)}>
