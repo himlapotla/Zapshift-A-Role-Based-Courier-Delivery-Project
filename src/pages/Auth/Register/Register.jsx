@@ -38,7 +38,7 @@ const Register = () => {
 
                         updateUserProfile(profile)
                         .then( () => {
-                            console.log('useer profile updated Done..');
+                            // console.log('useer profile updated Done..');
                         })
                         .catch( err => console.log(err))
                     })

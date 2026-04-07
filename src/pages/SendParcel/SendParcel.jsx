@@ -2,6 +2,8 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useLoaderData } from 'react-router'
 import Swal from 'sweetalert2'
+import useAxiosSecurity from '../../hooks/useAxiosSecurity'
+import UseAuth from '../../hooks/UseAuth'
 
 const SendParcel = () => {
 
@@ -10,6 +12,8 @@ const SendParcel = () => {
     const serviceCenters = useLoaderData()
     const regionsDuplicate = serviceCenters.map(c => c.region)
     const regions = [...new Set(regionsDuplicate)]
+    const axiosSecurity = useAxiosSecurity()
+    const { user } = UseAuth()
 
     const senderRegion = watch('senderRegion')
     const receiverRegion = watch('receiverRegion')
@@ -21,6 +25,8 @@ const SendParcel = () => {
     }
 
     const handleSendParcel = (data) => {
+
+        console.log(data)
 
         let cost = 0
         let isSameDistrict = false
@@ -65,12 +71,14 @@ const SendParcel = () => {
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, I agree!"
         }).then((result) => {
-            if (result.isConfirmed) Swal.fire({
-                title: "Deleted!",
-                text: "Your file has been deleted.",
-                icon: "success"
-            });
+            if (result.isConfirmed) {
+                axiosSecurity.post('/parcels', data)
+                .then(res => {
+                    console.log('after saving the parcel data', res.data)
+                })
+            }
         });
+        // Axios automatically does two things behind the scenes: Serializes your data object → JSON.stringify(data) → turns it into a JSON string. Sets the header → Content-Type: application/json automatically
 
     }
 
@@ -111,10 +119,10 @@ const SendParcel = () => {
                         <h3 className="font-semibold text-3xl"> Sender Details </h3>
 
                         <label className="label "> Sender Name </label>
-                        <input type="text" {...register('senderName')} className="input w-full" />
+                        <input defaultValue={user?.displayName} type="text" {...register('senderName')} className="input w-full" />
 
                         <label className="label "> Sender Email </label>
-                        <input type="email" {...register('senderEmail')} className="input w-full" />
+                        <input defaultValue={user?.email} type="email" {...register('senderEmail')} className="input w-full" />
 
                         <fieldset className="fieldset">
                             <legend className="fieldset-legend"> Pick A Region </legend>
