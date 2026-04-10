@@ -6,10 +6,10 @@ import Loading from '../../Shared/Loading'
 
 const Payment = () => {
 
-    const {parcelId} = useParams()
+    const { parcelId } = useParams()
     const axios = useAxiosSecurity()
 
-    const { isLoading, data : parcel } = useQuery({
+    const { isLoading, data: parcel } = useQuery({
         queryKey: ['parcel', parcelId],
         // cache the data. So that next time do not need to all api. Here key - parcel & value - parcelId, so next time when (parcelId) this parcel's data need to be fetched tanstack will fetch that from it's cache. Simple.
         queryFn: async () => {
@@ -19,15 +19,22 @@ const Payment = () => {
 
     })
 
-    if(isLoading){
+    const handelPayment = async () => {
+        const res = await axios.post('/create-checkout-session', parcel)
+        console.log(res.data)
+        window.location.href = res.data.url
+    }
+
+    if (isLoading) {
         return <Loading> </Loading>
     }
 
-  return (
-    <div>
-        <p>parcel : {parcel?.parcelName}</p>
-    </div>
-  )
+    return (
+        <div>
+            <p> Please pay ${parcel.cost} for {parcel?.parcelName} </p>
+            <button onClick={handelPayment} className='btn bg-[#caeb66]'> pay </button>
+        </div>
+    )
 }
 
 export default Payment

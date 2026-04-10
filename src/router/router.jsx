@@ -13,6 +13,8 @@ import DashBoardLayout from "../layout/DashBoardLayout";
 import MyParcels from "../pages/Dashboard/MyParcels/MyParcels";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import useAxiosSecurity from "../hooks/useAxiosSecurity";
+import PaymentSuccess from "../pages/Dashboard/Payment/PaymentSuccess";
+import { PaymentCanceled } from "../pages/Dashboard/Payment/PaymentCanceled";
 
 const axios = useAxiosSecurity()
 
@@ -71,6 +73,14 @@ export const router = createBrowserRouter([
         element: <Payment> </Payment>,
         // loader: ({ params }) => axios.get(`/one-parcel/${params.parcelId}`).then(res => res.data)
         // for the dynamic routes params are values from the URL.
+      },
+      {
+        path: 'payment-success',
+        element: <PaymentSuccess> </PaymentSuccess>
+      },
+      {
+        path: 'payment-canceled',
+        element: <PaymentCanceled> </PaymentCanceled>,
       }
     ]
   }
