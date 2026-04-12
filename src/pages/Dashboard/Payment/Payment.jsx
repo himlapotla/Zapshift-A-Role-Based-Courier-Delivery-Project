@@ -14,9 +14,9 @@ const Payment = () => {
         // cache the data. So that next time do not need to all api. Here key - parcel & value - parcelId, so next time when (parcelId) this parcel's data need to be fetched tanstack will fetch that from it's cache. Simple.
         queryFn: async () => {
             const res = await axios.get(`/one-parcel/${parcelId}`)
+            console.log(res.data._id)
             return res.data
         }
-
     })
 
     const handelPayment = async () => {
@@ -32,7 +32,7 @@ const Payment = () => {
     return (
         <div>
             <p> Please pay ${parcel.cost} for {parcel?.parcelName} </p>
-            <button onClick={handelPayment} className='btn bg-[#caeb66]'> pay </button>
+            <button onClick={handelPayment} className='btn bg-[#caeb66]'> Pay </button>
         </div>
     )
 }

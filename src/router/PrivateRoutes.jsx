@@ -7,7 +7,7 @@ const PrivateRoutes = ({ children }) => {
 
     const {user, loading, setUserLocation} = UseAuth()
     const location = useLocation()
-    console.log(location)
+    // console.log(location)
     // const tracLocation = location.pathname
     // setUserLocation(tracLocation)
 
