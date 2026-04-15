@@ -1,4 +1,7 @@
 import React from 'react'
+import { BsBagCheckFill, BsBagFill } from 'react-icons/bs'
+import { FaFaceAngry, FaWallet } from 'react-icons/fa6'
+import { IoIosAdd } from 'react-icons/io'
 import { Link, NavLink, Outlet } from 'react-router'
 
 const DashBoardLayout = () => {
@@ -18,7 +21,7 @@ const DashBoardLayout = () => {
                 <div className="p-7">
                     <Outlet> </Outlet>
                 </div>
-                
+
             </div>
 
             <div className="drawer-side is-drawer-close:overflow-visible">
@@ -36,23 +39,25 @@ const DashBoardLayout = () => {
                         </li>
 
                         <li>
-                            <NavLink
-                                to={'/dashboard/my-parcels'}
-                                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                                data-tip="My Parcels"
-                            >
-                                {/* Package/Parcel icon */}
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor" className="my-1.5 inline-block size-4">
-                                    <path d="M16.5 9.4 7.55 4.24" />
-                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-                                    <polyline points="3.29 7 12 12 20.71 7" />
-                                    <line x1="12" y1="22" x2="12" y2="12" />
-                                </svg>
-                                <span className="is-drawer-close:hidden">My Parcels</span>
+                            <NavLink to={'/dashboard/my-parcels'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="My All Parcels">
+
+                                <BsBagFill> </BsBagFill>
+                                <span className="is-drawer-close:hidden">All My Parcels</span>
+
                             </NavLink>
                         </li>
 
-                        
+                        <li>
+                            <NavLink to={'/dashboard/payment-history'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="My Payment History">
+
+                                <FaWallet> </FaWallet>
+                                <span className="is-drawer-close:hidden">My Payment History</span>
+
+                            </NavLink>
+                        </li>
+
+
+
                     </ul>
                 </div>
             </div>

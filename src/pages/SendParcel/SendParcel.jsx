@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { useLoaderData } from 'react-router'
+import { useLoaderData, useNavigate } from 'react-router'
 import Swal from 'sweetalert2'
 import useAxiosSecurity from '../../hooks/useAxiosSecurity'
 import UseAuth from '../../hooks/UseAuth'
@@ -14,6 +14,7 @@ const SendParcel = () => {
     const regions = [...new Set(regionsDuplicate)]
     const axiosSecurity = useAxiosSecurity()
     const { user } = UseAuth()
+    const navigate = useNavigate()
 
     const senderRegion = watch('senderRegion')
     const receiverRegion = watch('receiverRegion')
@@ -70,14 +71,36 @@ const SendParcel = () => {
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, I agree!"
         })
-        .then((result) => {
-            if (result.isConfirmed) {
-                axiosSecurity.post('/post-parcels', data)
-                .then(res => {
-                    console.log('after saving the parcel data', res.data)
-                })
-            }
-        });
+            .then((result) => {
+                if (result.isConfirmed) {
+                    axiosSecurity.post('/post-parcels', data)
+                        .then(res => {
+                            // console.log('after saving the parcel data', res.data)
+                            if (res.data.insertedId) {
+                                Swal.fire({
+                                    title: `Please Pay tk ${cost}`,
+                                    icon: "warning",
+                                    showCancelButton: true,
+                                    confirmButtonColor: "#3085d6",
+                                    cancelButtonColor: "#d33",
+                                    confirmButtonText: "Pay Now"
+                                })
+                                    .then((result) => {
+                                        if (result.isConfirmed) {
+                                            navigate('/dashboard/my-parcels')
+                                            Swal.fire({
+                                                position: "top-end",
+                                                icon: "success",
+                                                title: "Please Pay the money.",
+                                                showConfirmButton: false,
+                                                timer: 2800
+                                            });
+                                        }
+                                    })
+                            }
+                        })
+                }
+            });
         // Axios automatically does two things behind the scenes: Serializes your data object → JSON.stringify(data) → turns it into a JSON string. Sets the header → Content-Type: application/json automatically
     }
 

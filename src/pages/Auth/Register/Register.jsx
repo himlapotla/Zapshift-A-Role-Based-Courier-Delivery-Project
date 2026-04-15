@@ -12,7 +12,7 @@ const Register = () => {
     const { registerUser, updateUserProfile } = useAuth()
 
     const location = useLocation()
-    console.log(location)
+    // console.log(location)
     const navigate = useNavigate()
 
     const handleRegistration = (data) => {
