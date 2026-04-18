@@ -5,14 +5,15 @@ import useAuth from '../../../hooks/UseAuth'
 import { Link, useLocation, useNavigate } from 'react-router'
 import SocialLogin from '../SocialLogin/SocialLogin'
 import axios from 'axios'
+import useAxiosSecurity from '../../../hooks/useAxiosSecurity'
 
 const Register = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm()
     const { registerUser, updateUserProfile } = useAuth()
+    const axiosUser = useAxiosSecurity()
 
     const location = useLocation()
-    // console.log(location)
     const navigate = useNavigate()
 
     const handleRegistration = (data) => {
@@ -37,10 +38,22 @@ const Register = () => {
                         }
 
                         updateUserProfile(profile)
-                        .then( () => {
-                            // console.log('useer profile updated Done..');
+                            .then(() => {
+                                // console.log('useer profile updated Done..');
+                            })
+                            .catch(err => console.log(err))
+
+                        const userData = {
+                            displayName: data.name,
+                            email: data.email,
+                            photoURL: newProfilePhoto
+                        }
+
+                        axiosUser.post('/create-users', userData)
+                        .then(res => {
+                            console.log(res.data)
                         })
-                        .catch( err => console.log(err))
+
                     })
 
                 navigate(location.state || '/')

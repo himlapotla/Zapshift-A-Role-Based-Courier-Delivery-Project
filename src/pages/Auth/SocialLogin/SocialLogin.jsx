@@ -6,7 +6,7 @@ const SocialLogin = () => {
 
     const { googleUser } = UseAuth()
     const location = useLocation()
-    console.log('social', location)
+    // console.log('social', location)
     const navigate = useNavigate()
 
     const googleSing = () => {

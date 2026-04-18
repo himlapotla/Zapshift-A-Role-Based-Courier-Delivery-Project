@@ -12,12 +12,10 @@ import SendParcel from "../pages/SendParcel/SendParcel";
 import DashBoardLayout from "../layout/DashBoardLayout";
 import MyParcels from "../pages/Dashboard/MyParcels/MyParcels";
 import Payment from "../pages/Dashboard/Payment/Payment";
-import useAxiosSecurity from "../hooks/useAxiosSecurity";
 import PaymentSuccess from "../pages/Dashboard/Payment/PaymentSuccess";
 import { PaymentCanceled } from "../pages/Dashboard/Payment/PaymentCanceled";
 import PaymentHistory from "../pages/Dashboard/Payment/PaymentHistory";
 
-const axios = useAxiosSecurity()
 
 export const router = createBrowserRouter([
   {
