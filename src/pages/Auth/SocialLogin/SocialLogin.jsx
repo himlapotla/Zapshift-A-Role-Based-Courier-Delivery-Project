@@ -1,6 +1,7 @@
 import React from 'react'
 import UseAuth from '../../../hooks/UseAuth'
 import { useLocation, useNavigate } from 'react-router'
+import useAxiosSecurity from '../../../hooks/useAxiosSecurity'
 
 const SocialLogin = () => {
 
@@ -8,12 +9,23 @@ const SocialLogin = () => {
     const location = useLocation()
     // console.log('social', location)
     const navigate = useNavigate()
+    const axios = useAxiosSecurity()
 
     const googleSing = () => {
         googleUser()
             .then(res => {
                 console.log(res.user);
                 navigate(location?.state || '/')
+
+                const userData = {
+                    displayName: res.user.displayName,
+                    email: res.user.email,
+                    photoURL: res.user.photoURL
+                }
+                axios.post('/create-users', userData)
+                .then(res => {
+                    console.log('user data inserted - ', res.data,)
+                })
             })
             .catch(err => {
                 console.log(err);

@@ -2,6 +2,7 @@ import React from 'react'
 import { BsBagCheckFill, BsBagFill } from 'react-icons/bs'
 import { FaFaceAngry, FaWallet } from 'react-icons/fa6'
 import { IoIosAdd } from 'react-icons/io'
+import { MdOutlinePermScanWifi } from 'react-icons/md'
 import { Link, NavLink, Outlet } from 'react-router'
 
 const DashBoardLayout = () => {
@@ -38,7 +39,7 @@ const DashBoardLayout = () => {
                             </Link>
                         </li>
 
-                        <li>
+                        <li className='my-1'>
                             <NavLink to={'/dashboard/my-parcels'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="My All Parcels">
 
                                 <BsBagFill> </BsBagFill>
@@ -47,11 +48,20 @@ const DashBoardLayout = () => {
                             </NavLink>
                         </li>
 
-                        <li>
+                        <li className='my-1'>
                             <NavLink to={'/dashboard/payment-history'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="My Payment History">
 
                                 <FaWallet> </FaWallet>
                                 <span className="is-drawer-close:hidden">My Payment History</span>
+
+                            </NavLink>
+                        </li>
+
+                        <li className='my-1'>
+                            <NavLink to={'/dashboard/approve-rider'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Approve Rider">
+
+                                <MdOutlinePermScanWifi> </MdOutlinePermScanWifi>
+                                <span className="is-drawer-close:hidden">Approve Rider</span>
 
                             </NavLink>
                         </li>

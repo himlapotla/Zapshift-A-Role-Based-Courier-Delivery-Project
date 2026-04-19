@@ -53,9 +53,11 @@ const Login = () => {
 
               <div><a className="link link-hover">Forgot password?</a></div>
               <button className="bg-[#caeb66]  border-none btn mt-4"> Login </button>
+
               <p> Don't have an account? <span className='text-blue-400 underline'>
                 <Link state={location.state} to={'/register'}> Register here.. </Link> </span> </p>
             </fieldset>
+            
           </form>
 
           <SocialLogin> </SocialLogin>
