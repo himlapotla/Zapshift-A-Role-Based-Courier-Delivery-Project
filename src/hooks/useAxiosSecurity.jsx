@@ -21,7 +21,8 @@ const useAxiosSecurity = () => {
 
     const resInterceptor = axiosSecurity.interceptors.response.use( (response)=>{
       return response
-    }, 
+    },
+    
     (error)=>{
       console.log(error)
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { BsBagCheckFill, BsBagFill } from 'react-icons/bs'
+import { FaUser } from 'react-icons/fa'
 import { FaFaceAngry, FaWallet } from 'react-icons/fa6'
 import { IoIosAdd } from 'react-icons/io'
 import { MdOutlinePermScanWifi } from 'react-icons/md'
@@ -62,6 +63,15 @@ const DashBoardLayout = () => {
 
                                 <MdOutlinePermScanWifi> </MdOutlinePermScanWifi>
                                 <span className="is-drawer-close:hidden">Approve Rider</span>
+
+                            </NavLink>
+                        </li>
+
+                        <li className='my-1'>
+                            <NavLink to={'/dashboard/user-management'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="User Management">
+
+                                <FaUser> </FaUser>
+                                <span className="is-drawer-close:hidden">User Management</span>
 
                             </NavLink>
                         </li>
