@@ -42,7 +42,7 @@ const Rider = () => {
   }
 
   return (
-    <div>
+    <div className='w-11/12 mx-auto'>
       <h2> Be a Rider .. . </h2>
 
       <form className='pb-10 pt-10 text-black' onSubmit={handleSubmit(handleRider)}>

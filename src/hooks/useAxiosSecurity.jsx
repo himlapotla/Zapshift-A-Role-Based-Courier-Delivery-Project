@@ -22,12 +22,9 @@ const useAxiosSecurity = () => {
     const resInterceptor = axiosSecurity.interceptors.response.use( (response)=>{
       return response
     },
-    
     (error)=>{
       console.log(error)
-
       const status = error.status
-
       if(status === 401 || status === 403) {
         logOutUser()
         .then(() => {
@@ -41,7 +38,6 @@ const useAxiosSecurity = () => {
       axiosSecurity.interceptors.request.eject(reqInterceptor)
       axiosSecurity.interceptors.response.eject(resInterceptor)
     }
-
   }, [user])
 
   return axiosSecurity

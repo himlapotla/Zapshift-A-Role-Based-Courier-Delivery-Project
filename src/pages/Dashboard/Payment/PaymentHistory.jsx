@@ -2,12 +2,14 @@ import React from 'react'
 import UseAuth from '../../../hooks/UseAuth'
 import useAxiosSecurity from '../../../hooks/useAxiosSecurity'
 import { useQueries, useQuery } from '@tanstack/react-query'
+import useRole from '../../../hooks/useRole'
 
 const PaymentHistory = () => {
 
     const { user } = UseAuth()
     const axios = useAxiosSecurity()
-    console.log(user)
+    const {userRole} = useRole()
+    console.log(userRole)
 
     const { data: payments = [] } = useQuery({
         queryKey: ['payments', user.email],

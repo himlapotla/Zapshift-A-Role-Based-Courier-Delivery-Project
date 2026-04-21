@@ -4,10 +4,12 @@ import { useQuery } from '@tanstack/react-query'
 import { FiShieldOff } from 'react-icons/fi'
 import { FaUserShield } from 'react-icons/fa'
 import Swal from 'sweetalert2'
+import UseAuth from '../../../hooks/UseAuth'
 
 const UserManagement = () => {
 
     const axios = useAxiosSecurity()
+    const {user} = UseAuth()
 
     const { refetch, data: users = [] } = useQuery({
         queryKey: ['user'],
@@ -19,36 +21,64 @@ const UserManagement = () => {
 
     const makeAdmin = (user) => {
         const roleInfo = { role: 'admin' }
-        axios.patch(`/make-admin/${user._id}`, roleInfo)
-            .then(res => {
-                if (res.data.modifiedCount) {
-                    refetch()
-                    Swal.fire({
-                        title: 'User has been updated to Admin.',
-                        icon: "warning",
-                        confirmButtonColor: "#3085d6",
-                        cancelButtonColor: "#d33",
-                        confirmButtonText: "OK"
-                    })
+        Swal.fire({
+            title: "Do you want to make this user Admin?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes!"
+        })
+            .then((result => {
+                if (result.isConfirmed) {
+                    axios.patch(`/make-admin/${user._id}`, roleInfo)
+                        .then(res => {
+                            if (res.data.modifiedCount) {
+                                refetch()
+                                Swal.fire({
+                                    title: 'User has been updated to Admin.',
+                                    icon: "warning",
+                                    confirmButtonColor: "#3085d6",
+                                    cancelButtonColor: "#d33",
+                                    confirmButtonText: "OK"
+                                })
+                            }
+                        })
                 }
-            })
+            }))
+
     }
 
     const removeAdmin = (user) => {
         const roleInfo = { role: 'user' }
-        axios.patch(`/make-admin/${user._id}`, roleInfo)
-            .then(res => {
-                if (res.data.modifiedCount) {
-                    refetch()
-                    Swal.fire({
-                        title: 'User has been remoed from admin.',
-                        icon: "warning",
-                        confirmButtonColor: "#3085d6",
-                        cancelButtonColor: "#d33",
-                        confirmButtonText: "OK"
-                    })
+
+        Swal.fire({
+            title: "Do you want to remove this user from admin?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes!"
+        })
+            .then((result => {
+                if (result.isConfirmed) {
+                    axios.patch(`/make-admin/${user._id}`, roleInfo)
+                        .then(res => {
+                            if (res.data.modifiedCount) {
+                                refetch()
+                                Swal.fire({
+                                    title: 'User has been remoed from admin.',
+                                    icon: "warning",
+                                    confirmButtonColor: "#3085d6",
+                                    cancelButtonColor: "#d33",
+                                    confirmButtonText: "OK"
+                                })
+                            }
+                        })
                 }
-            })
+
+            }))
+
     }
 
     return (
