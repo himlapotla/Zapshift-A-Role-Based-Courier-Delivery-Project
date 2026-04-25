@@ -2,20 +2,30 @@ import React from 'react'
 import Logo from '../../components/Logo/Logo'
 import { Link, NavLink } from 'react-router'
 import UseAuth from '../../hooks/UseAuth'
+import useRole from '../../hooks/useRole'
 
 const Navbar = () => {
 
     const { user, logOutUser } = UseAuth()
+    const { userRole } = useRole()
 
     const Links = <>
-        <li> <NavLink to={'/about'}> Submenu11 </NavLink> </li>
         <li> <NavLink to={'/about'}> About Us </NavLink> </li>
         <li> <NavLink to={'/send-parcel'}> Send Parcel </NavLink> </li>
         <li> <NavLink to={'/coverage'}> Coverage </NavLink> </li>
         {
-            user && <>
+
+
+            userRole === 'user' && <>
                 <li> <NavLink to={'/dashboard/my-parcels'}> My Parcels </NavLink> </li>
                 <li> <NavLink to={'/rider'}> Be a Rider </NavLink> </li>
+                <li> <NavLink to={'/dashboard'}> User Dashboard </NavLink> </li>
+            </>
+
+        }
+        {
+            userRole === 'admin' && <>
+                <li> <NavLink to={'/dashboard'}> Admin Dashboard </NavLink> </li>
             </>
         }
     </>
@@ -43,7 +53,7 @@ const Navbar = () => {
                             {Links}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl"> <Logo> </Logo> </a>
+                    <Link to={'/'} className="btn btn-ghost text-xl"> <Logo> </Logo> </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

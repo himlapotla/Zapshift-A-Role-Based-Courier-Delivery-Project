@@ -20,7 +20,7 @@ const ApproveRider = () => {
     const updateRiderStatus = (rider, status) => {
         console.log(rider)
 
-        const updateInfo = { status: status, ridersEmail : rider.riderEmail}
+        const updateInfo = { status: status, ridersEmail: rider.riderEmail }
 
         axios.patch(`/approve-rider/${rider._id}`, updateInfo)
             .then(res => {
@@ -41,24 +41,38 @@ const ApproveRider = () => {
         updateRiderStatus(rider, 'approved')
     }
 
-    const handleReject = (id) => {
-        updateRiderStatus(id, 'rejected')
+    const handleReject = (rider) => {
+        updateRiderStatus(rider, 'rejected')
     }
 
     const handleDelete = (id) => {
-        axios.delete(`/delete-rider/${id}`)
-            .then(res => {
-                if (res.data.deletedCount) {
-                    refetch()
-                    Swal.fire({
-                        title: 'Rider is Deleted.',
-                        icon: "warning",
-                        confirmButtonColor: "#3085d6",
-                        cancelButtonColor: "#d33",
-                        confirmButtonText: "OK"
-                    })
+        Swal.fire({
+            title: "Do you want to delete this rider?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes"
+        })
+
+            .then((result) => {
+                if (result.isConfirmed) {
+                    axios.delete(`/delete-rider/${id}`)
+                        .then(res => {
+                            if (res.data.deletedCount) {
+                                refetch()
+                                Swal.fire({
+                                    title: 'Rider is Deleted.',
+                                    icon: "warning",
+                                    confirmButtonColor: "#3085d6",
+                                    cancelButtonColor: "#d33",
+                                    confirmButtonText: "OK"
+                                })
+                            }
+                        })
                 }
             })
+
     }
 
     return (
@@ -79,7 +93,7 @@ const ApproveRider = () => {
                 <tbody>
 
                     {
-                        riders.map((rider, i) =>
+                        riders.map( (rider, i) =>
                             <tr>
                                 <th> {i + 1} </th>
                                 <td> {rider.riderName} </td>
@@ -94,7 +108,7 @@ const ApproveRider = () => {
                                     <button onClick={() => handleApprove(rider)} className='btn'>
                                         <FaUserCheck />
                                     </button>
-                                    <button onClick={() => handleReject(rider._id)} className='btn m-1'>
+                                    <button onClick={() => handleReject(rider)} className='btn m-1'>
                                         <FaUserTimes />
                                     </button>
                                     <button onClick={() => handleDelete(rider._id)} className='btn'>

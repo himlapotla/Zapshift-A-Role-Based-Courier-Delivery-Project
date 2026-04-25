@@ -1,20 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import useAxiosSecurity from '../../../hooks/useAxiosSecurity'
 import { useQuery } from '@tanstack/react-query'
 import { FiShieldOff } from 'react-icons/fi'
-import { FaUserShield } from 'react-icons/fa'
+import { FaSearch, FaUserShield } from 'react-icons/fa'
 import Swal from 'sweetalert2'
 import UseAuth from '../../../hooks/UseAuth'
 
 const UserManagement = () => {
 
     const axios = useAxiosSecurity()
-    const {user} = UseAuth()
+    const { user } = UseAuth()
+    const [searchText, setSearchText] = useState('')
 
     const { refetch, data: users = [] } = useQuery({
-        queryKey: ['user'],
+        // queryKey: ['my-user', ]-(this is the label) React Query stores the fetched data in memory (cache) using this label. Whenever i ask for data, it first checks — "do I already have a box(cached data - returned from queryFn) with this label?" If yes, it gives you that data instantly without making a network request. 
+        // here searchText - searchText changes ✅The queryKey label changes ✅React Query sees a new label it hasn't seen before then It automatically fires a new API request instantly ✅That's why results come immediately as i typed.  
+        queryKey: [searchText],
         queryFn: async () => {
-            const res = await axios.get(`/all-users`)
+            const res = await axios.get(`/all-users?searchText=${searchText}`)
             return res.data
         }
     })
@@ -82,8 +85,13 @@ const UserManagement = () => {
     }
 
     return (
-        // <div>UserManagement--{users.length}</div>
+
         <div>
+            <p> search text -- {searchText} </p>
+            <div className='py-6 px-3'>
+                <label> Search the User </label> <br />
+                <input onChange={ (e) => setSearchText(e.target.value) } type="text" className="input" placeholder=' search user' />
+            </div>
 
             <div className="overflow-x-auto">
                 <table className="table">

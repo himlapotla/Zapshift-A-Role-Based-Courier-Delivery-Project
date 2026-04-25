@@ -11,7 +11,7 @@ const Login = () => {
   const { register, handleSubmit, errors } = useForm()
   const { signInUser } = UseAuth()
   const location = useLocation()
-  console.log(location)
+  // console.log(location)
   const navigate = useNavigate()
 
   const handleLogin = (data) => {
