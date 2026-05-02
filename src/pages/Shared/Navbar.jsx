@@ -28,6 +28,11 @@ const Navbar = () => {
                 <li> <NavLink to={'/dashboard'}> Admin Dashboard </NavLink> </li>
             </>
         }
+        {
+            userRole === 'rider' && <>
+                <li> <NavLink to={'/dashboard'}> Rider Dashboard </NavLink> </li>
+            </>
+        }
     </>
 
     const handleOut = () => {

@@ -83,7 +83,7 @@ const MyParcels = () => {
                                     } 
                                 </td>
 
-                                <td> payment status </td>
+                                <td> {p.deliveryStatus ? p.deliveryStatus : 'Pay First'} </td>
 
                                 <td>
                                     <button className='btn btn-square mx-1 hover:bg-[#caeb66]'>

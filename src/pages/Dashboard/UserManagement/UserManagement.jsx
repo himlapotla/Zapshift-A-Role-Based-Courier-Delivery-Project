@@ -16,11 +16,13 @@ const UserManagement = () => {
         // queryKey: ['my-user', ]-(this is the label) React Query stores the fetched data in memory (cache) using this label. Whenever i ask for data, it first checks — "do I already have a box(cached data - returned from queryFn) with this label?" If yes, it gives you that data instantly without making a network request. 
         // here searchText - searchText changes ✅The queryKey label changes ✅React Query sees a new label it hasn't seen before then It automatically fires a new API request instantly ✅That's why results come immediately as i typed.  
         queryKey: [searchText],
+        // queryKey always cached the data, so that no need to refetch the same data at letter. It cachs data on the basis of a value. Here the value is searchText. So, every time searchTeaxt changes it calls the api at every single time....!
         queryFn: async () => {
             const res = await axios.get(`/all-users?searchText=${searchText}`)
             return res.data
         }
     })
+
 
     const makeAdmin = (user) => {
         const roleInfo = { role: 'admin' }

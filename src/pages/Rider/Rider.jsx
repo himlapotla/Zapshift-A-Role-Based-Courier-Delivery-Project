@@ -26,20 +26,62 @@ const Rider = () => {
     return allDistricts
   }
 
-  const handleRider = (data) => {
-    axios.post('/create-rider', data)
-      .then(res => {
-        if (res.data.insertedId) {
-          Swal.fire({
-            title: 'Your Request has been submitted. Please wait for confirmation.',
-            icon: "warning",
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "OK"
-          })
-        }
+  // const handleRider = async (data) => {
+  //   try {
+  //     axios.post('/create-rider', data)
+  //       .then(res => {
+  //         if (res.data.insertedId) {
+  //           Swal.fire({
+  //             title: 'Your Request has been submitted. Please wait for confirmation.',
+  //             icon: "warning",
+  //             confirmButtonColor: "#3085d6",
+  //             cancelButtonColor: "#d33",
+  //             confirmButtonText: "OK"
+  //           })
+  //         }
+  //       })
+  //   }
+  //   catch (error) {
+  //     const status = error.response?.status
+  //     if (status === 409) {
+  //       Swal.fire({
+  //             title: 'Do not hurry.',
+  //             icon: "warning",
+  //             confirmButtonColor: "#3085d6",
+  //             cancelButtonColor: "#d33",
+  //             confirmButtonText: "OK"
+  //           })
+  //     }
+  //   }
+
+  // }
+
+  // ✅ Correct
+const handleRider = async (data) => {
+  console.log(data)
+  try {
+    const res = await axios.post('/create-rider', data)  // await!
+    if (res.data.insertedId) {
+      Swal.fire({
+        title: 'Your Request has been submitted. Please wait for confirmation.',
+        icon: "warning",
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "OK"
       })
+    }
   }
+  catch (error) {
+    const status = error.response?.status
+    if (status === 409) {
+      Swal.fire({
+        title: 'Do not hurry.',
+        icon: "warning",
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "OK"
+      })
+    }
+  }
+}
 
   return (
     <div className='w-11/12 mx-auto'>
@@ -83,7 +125,7 @@ const Rider = () => {
 
             <fieldset className="fieldset">
               <legend className="fieldset-legend"> Pick A District </legend>
-              <select className="select" {...register('senderDistrict')}>
+              <select className="select" {...register('riderDistrict')}>
                 <option disabled={true}> Pick A District </option>
                 {
                   findDistrict(watchRiderRegion).map(d => <option> {d} </option>)

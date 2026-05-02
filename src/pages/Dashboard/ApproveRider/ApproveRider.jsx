@@ -18,7 +18,6 @@ const ApproveRider = () => {
     })
 
     const updateRiderStatus = (rider, status) => {
-        console.log(rider)
 
         const updateInfo = { status: status, ridersEmail: rider.riderEmail }
 
@@ -27,7 +26,7 @@ const ApproveRider = () => {
                 if (res.data.modifiedCount) {
                     refetch()
                     Swal.fire({
-                        title: 'Rider is Approved.',
+                        title: 'Rider is Updated.',
                         icon: "warning",
                         confirmButtonColor: "#3085d6",
                         cancelButtonColor: "#d33",
@@ -75,9 +74,14 @@ const ApproveRider = () => {
 
     }
 
+    
+
     return (
         <div>
             <h2> Approve Rides : {riders.length} </h2>
+
+            
+
             <table className="table table-zebra">
                 {/* head */}
                 <thead>
@@ -86,6 +90,7 @@ const ApproveRider = () => {
                         <th>Name</th>
                         <th>Email</th>
                         <th>Status</th>
+                        <th>Work Status</th>
                         <th>Date</th>
                         <th>Action</th>
                     </tr>
@@ -93,16 +98,18 @@ const ApproveRider = () => {
                 <tbody>
 
                     {
-                        riders.map( (rider, i) =>
+                        riders.map((rider, i) =>
                             <tr>
                                 <th> {i + 1} </th>
                                 <td> {rider.riderName} </td>
                                 <th> {rider.riderEmail} </th>
+
                                 <th>
                                     <p className={rider.status === 'approved' ? 'text-green-500' : 'text-red-500'}>
                                         {rider.status}
                                     </p>
                                 </th>
+                                <th>{rider.workStatus}</th>
                                 <td> {rider.createdAt} </td>
                                 <td>
                                     <button onClick={() => handleApprove(rider)} className='btn'>

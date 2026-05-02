@@ -18,6 +18,7 @@ import PaymentHistory from "../pages/Dashboard/Payment/PaymentHistory";
 import ApproveRider from "../pages/Dashboard/ApproveRider/ApproveRider";
 import UserManagement from "../pages/Dashboard/UserManagement/UserManagement";
 import AdminRoutes from "./AdminRoutes";
+import AssignRider from "../pages/Dashboard/AssignRider/AssignRider";
 
 
 export const router = createBrowserRouter([
@@ -96,6 +97,10 @@ export const router = createBrowserRouter([
       {
         path: 'user-management',
         element: <AdminRoutes> <UserManagement> </UserManagement> </AdminRoutes>
+      },
+      {
+        path: 'assign-rider',
+        element: <AdminRoutes> <AssignRider> </AssignRider> </AdminRoutes>
       }
     ]
   }

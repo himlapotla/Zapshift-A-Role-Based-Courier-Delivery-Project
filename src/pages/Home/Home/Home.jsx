@@ -4,16 +4,19 @@ import ServicesSection from '../ServicesSection/ServicesSection'
 import Brand from '../brand/brand'
 import Reviews from '../Reviews/Reviews'
 import useRole from '../../../hooks/useRole'
+import UseAuth from '../../../hooks/UseAuth'
 
 const reviewsPromise = fetch('/reviews.json')
 .then(res => res.json())
 
 const Home = () => {
   const {userRole} = useRole()
+  const {user} = UseAuth()
 
   return (
     <div>
       <p>role -- {userRole} </p>
+      <p>role -- {user?.email} </p>
 
         <Banar> </Banar>
 

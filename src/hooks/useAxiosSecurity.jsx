@@ -31,7 +31,7 @@ const useAxiosSecurity = () => {
           navigate('/login')
         })
       }
-      // return Promise.reject(error)
+      return Promise.reject(error)
     })
 
     return () => {
