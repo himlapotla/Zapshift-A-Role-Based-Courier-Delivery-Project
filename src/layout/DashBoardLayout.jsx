@@ -6,7 +6,7 @@ import { IoIosAdd } from 'react-icons/io'
 import { MdOutlinePermScanWifi } from 'react-icons/md'
 import { Link, NavLink, Outlet } from 'react-router'
 import useRole from '../hooks/useRole'
-import { RiEBikeFill } from 'react-icons/ri'
+import { RiEBikeFill, RiTaskLine } from 'react-icons/ri'
 
 const DashBoardLayout = () => {
 
@@ -68,19 +68,26 @@ const DashBoardLayout = () => {
                         }
 
                         {
-
                             userRole === 'rider' && <>
                                 <li className='my-1'>
-                                    <NavLink to={'/dashboard/approve-rider'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Assigned Deliveris">
+                                    <NavLink to={'/dashboard/assigned-tasks'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Assigned Deliveris">
 
                                         <FaTasks />
                                         <span className="is-drawer-close:hidden">Assigned Deliveris</span>
 
                                     </NavLink>
                                 </li>
+
+                                <li className='my-1'>
+                                    <NavLink to={'/dashboard/completed-tasks'} className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Completed Delivery">
+
+                                        <RiTaskLine />
+                                        <span className="is-drawer-close:hidden">Completed Delivery</span>
+
+                                    </NavLink>
+                                </li>
                             </>
                         }
-
 
                         {
                             userRole === 'admin' && <>

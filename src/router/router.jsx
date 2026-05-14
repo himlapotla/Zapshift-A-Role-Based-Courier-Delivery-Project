@@ -19,6 +19,9 @@ import ApproveRider from "../pages/Dashboard/ApproveRider/ApproveRider";
 import UserManagement from "../pages/Dashboard/UserManagement/UserManagement";
 import AdminRoutes from "./AdminRoutes";
 import AssignRider from "../pages/Dashboard/AssignRider/AssignRider";
+import AssignedTasks from "../pages/Dashboard/Rider'sPages/AssignedTasks";
+import RiderRoutes from "./RiderRoutes";
+import CompletedTask from "../pages/Dashboard/Rider'sPages/CompletedTask";
 
 
 export const router = createBrowserRouter([
@@ -101,6 +104,15 @@ export const router = createBrowserRouter([
       {
         path: 'assign-rider',
         element: <AdminRoutes> <AssignRider> </AssignRider> </AdminRoutes>
+      },
+
+      {
+        path: 'assigned-tasks',
+        element: <RiderRoutes> <AssignedTasks> </AssignedTasks> </RiderRoutes>
+      },
+      {
+        path: 'completed-tasks',
+        element: <RiderRoutes> <CompletedTask> </CompletedTask> </RiderRoutes>
       }
     ]
   }

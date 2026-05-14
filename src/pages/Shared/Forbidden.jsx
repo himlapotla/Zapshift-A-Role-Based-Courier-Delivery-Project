@@ -18,7 +18,7 @@ const Forbidden = () => {
         {/* Message */}
         <p className="text-lg text-gray-300 mb-6">
           You don’t have permission to access this page.  
-          This area is restricted to administrators only.
+          This area is restricted to administrators only............!
         </p>
 
         {/* Extra hint */}

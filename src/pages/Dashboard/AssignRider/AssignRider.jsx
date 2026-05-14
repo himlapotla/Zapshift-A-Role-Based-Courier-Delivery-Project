@@ -17,7 +17,7 @@ const AssignRider = () => {
         }
     })
 
-    const { data: riders = [] } = useQuery({
+    const {refetch: riderRefetch, data: riders = [] } = useQuery({
         queryKey: ['riders', selectedParcel?.senderDistrict],
         enabled: !!selectedParcel,
         queryFn: async () => {
@@ -39,6 +39,7 @@ const AssignRider = () => {
             .then((res) => {
                 if (res.data.modifiedCount) {
                     parcelRfetch()
+                    riderRefetch()
                     riderModalRef.current.close()
                     Swal.fire({
                         title: 'Rider has been Assigned. ',
@@ -101,6 +102,7 @@ const AssignRider = () => {
                     <tr>
                         <th>No.</th>
                         <th>Name</th>
+                        <th>Sender name</th>
                         <th>Amount</th>
                         <th>Pickup District</th>
                         <th> Created At </th>
@@ -115,6 +117,7 @@ const AssignRider = () => {
                             <tr>
                                 <th> {i + 1} </th>
                                 <td> {p.parcelName} </td>
+                                <td> {p.senderName} </td>
                                 <th> ${p.cost} </th>
                                 <th> {p.senderDistrict} </th>
                                 <th> {p.createdAt} </th>
