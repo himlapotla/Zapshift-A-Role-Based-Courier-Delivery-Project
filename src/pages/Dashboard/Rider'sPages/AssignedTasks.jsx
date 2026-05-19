@@ -18,7 +18,8 @@ const AssignedTasks = () => {
     })
 
     const handleDeliveryStatus = (parcel, status) => {
-        const statusInfo = { deliveryStatus: status, riderId: parcel.rider_id }
+        const statusInfo = { deliveryStatus: status, riderId: parcel.rider_id, parcelName: parcel.parcelName, trackingId: parcel.trackingId }
+        
         let messeg = `Parcle Status is updated with ${status.split('_').join(' ')}`
 
         axios.patch(`/parcel/${parcel._id}/status`, statusInfo)

@@ -17,10 +17,10 @@ const CompletedTask = () => {
   })
 
   const Payment = (parcel) => {
-    if(parcel.reciverDistrict === parcel.senderDistrict) {
+    if (parcel.reciverDistrict === parcel.senderDistrict) {
       return parcel.cost * 0.5
     }
-    else{
+    else {
       return parcel.cost * 0.7
     }
   }

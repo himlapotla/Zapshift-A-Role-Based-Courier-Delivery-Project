@@ -32,7 +32,9 @@ const AssignRider = () => {
             rId: rider._id,
             rName: rider.riderName,
             rEmail: rider.riderEmail,
-            parcelId: selectedParcel._id
+            parcelId: selectedParcel._id,
+            parcelName: selectedParcel.parcelName,
+            trackingId: selectedParcel.trackingId
         }
 
         axios.patch(`/update-parcel/${selectedParcel._id}`, assignRiderInfo)

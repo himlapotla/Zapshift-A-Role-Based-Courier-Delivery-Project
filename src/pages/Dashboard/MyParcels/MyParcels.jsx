@@ -62,6 +62,7 @@ const MyParcels = () => {
                         <th>Sending Cost</th>
                         <th>Payment</th>
                         <th>Delivery Status</th>
+                        <th>trackingId</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -69,7 +70,7 @@ const MyParcels = () => {
                     {
                         parcell.map((p, i) =>
                             <tr >
-                                <th>{i + 1}</th>
+                                <td>{i + 1}</td>
                                 <td>{p.parcelName}</td>
                                 <td> {p.cost} </td>
 
@@ -84,6 +85,10 @@ const MyParcels = () => {
                                 </td>
 
                                 <td> {p.deliveryStatus ? p.deliveryStatus : 'Pay First'} </td>
+
+                                <td>
+                                    <Link className='underline text-blue-500' to={`/parcel-track/${p.trackingId}`}> {p.trackingId} </Link>
+                                </td>
 
                                 <td>
                                     <button className='btn btn-square mx-1 hover:bg-[#caeb66]'>
