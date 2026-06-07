@@ -12,7 +12,7 @@ const AssignRider = () => {
     const { refetch : parcelRfetch, data: parcel = [] } = useQuery({
         queryKey: ['parcel', 'pending-pickup'],
         queryFn: async () => {
-            const res = await axios.get(`/my-parcels?deli_statuss=pending-pickup`)
+            const res = await axios.get(`/my-parcels?deli_statuss=amount_paid`)
             return res.data
         }
     })
