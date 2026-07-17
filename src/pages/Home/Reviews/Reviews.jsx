@@ -9,7 +9,12 @@ import 'swiper/css/pagination';
 
 const Reviews = ({ reviewsPromise }) => {
   const reviews = use(reviewsPromise)
-  // console.log((reviews))
+
+  // Now each component has one responsibility:
+  // Home → gets the data.
+  // Reviews → displays the slider.
+  // ReviewCard → displays one review.
+  // This follows a common software design idea called the Single Responsibility Principle: each component should have one main job.
 
   return (
     <div className='pb-20'>
@@ -32,10 +37,10 @@ const Reviews = ({ reviewsPromise }) => {
         }}
         // pagination={true}
 
-        loop = {true}
+        loop={true}
         autoplay={{
-          delay : 2000,
-          disableOnInteraction : false
+          delay: 2000,
+          disableOnInteraction: false
         }}
         modules={[EffectCoverflow, Autoplay]}
         className="mySwiper"
@@ -50,6 +55,7 @@ const Reviews = ({ reviewsPromise }) => {
       </Swiper>
 
     </div>
+
   )
 }
 

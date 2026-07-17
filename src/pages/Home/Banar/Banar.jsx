@@ -23,12 +23,14 @@ const Banar = () => {
                 </Carousel>
 
 
-                
+
                 <div className='absolute bottom-[30%] md:bottom-[20%] left-[6.5%] flex gap-2'>
 
                     <button className='bg-[#83a325] px-3 py-1.5 md:px-6 md:py-3 rounded-lg text-white font-bold'> Track Your Parcle </button>
                     <button className='bg-[#83a325] px-3 py-1.5 md:px-6 md:py-3 rounded-lg text-white font-bold'> Be a Rider </button>
+
                 </div>
+
             </div>
 
         </>

@@ -24,7 +24,7 @@ const useAxiosSecurity = () => {
     },
 
       (error) => {
-        console.log(error)
+        // console.log(error)
         const status = error.status
         if (status === 401 || status === 403) {
           logOutUser()

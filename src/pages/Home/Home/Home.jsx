@@ -1,4 +1,3 @@
-import React from 'react'
 import Banar from '../Banar/Banar'
 import ServicesSection from '../ServicesSection/ServicesSection'
 import Brand from '../brand/brand'
@@ -7,24 +6,25 @@ import useRole from '../../../hooks/useRole'
 import UseAuth from '../../../hooks/UseAuth'
 
 const reviewsPromise = fetch('/reviews.json')
-.then(res => res.json())
+  .then(res => res.json())
 
 const Home = () => {
-  const {userRole} = useRole()
-  const {user} = UseAuth()
+  const { userRole } = useRole()
+  const { user } = UseAuth()
 
   return (
     <div>
       <p>role -- {userRole} </p>
       <p>role -- {user?.email} </p>
 
-        <Banar> </Banar>
+      <Banar> </Banar>
 
-        <ServicesSection> </ServicesSection>
+      <ServicesSection> </ServicesSection>
 
-        <Brand> </Brand>
+      <Brand> </Brand>
 
-        <Reviews reviewsPromise={reviewsPromise}> </Reviews>
+      <Reviews reviewsPromise={reviewsPromise}> </Reviews>
+
     </div>
   )
 }

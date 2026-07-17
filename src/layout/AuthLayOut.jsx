@@ -7,7 +7,7 @@ const AuthLayOut = () => {
 
     return (
         <div>
-
+            
             <div className='w-6/12 mx-auto'>
                 <Logo> </Logo>
 

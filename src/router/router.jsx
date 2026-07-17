@@ -35,6 +35,7 @@ export const router = createBrowserRouter([
         index: true,
         element: <Home> </Home>
       },
+      // index means the default child route. If the user visits the parent route without any extra path, show this component. index = the default page inside a parent route.
       {
         path: 'rider',
         element: <PrivateRoutes> <Rider> </Rider> </PrivateRoutes>,
@@ -126,7 +127,5 @@ export const router = createBrowserRouter([
       }
     ]
   }
-
-
 
 ])
