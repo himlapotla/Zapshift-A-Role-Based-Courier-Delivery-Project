@@ -70,23 +70,27 @@ const Register = () => {
                 <div className="card-body ">
                     <p className='text-4xl font-bold'> Please Register.. </p>
                     <form onSubmit={handleSubmit(handleRegistration)}>
+
                         <fieldset className="fieldset">
 
                             <label className="label">Your name</label>
                             <input type="text" {...register('name', { required: true })} className="input" placeholder="your name" />
+                            {errors.name?.type === 'required' && <p className='text-red-500'> Please provide your name.. </p> }
 
 
                             <label className="label">Your Photo</label>
                             <input type="file" {...register('photoooo', { required: true })} className="file-input" placeholder="your photo" />
+                            {errors.photoooo?.type === 'required' && <p className='text-red-500'> Please provide your photo.. </p> }
 
 
                             <label className="label">Email</label>
-                            <input type="email" {...register('email', { required: true })} className="input" placeholder="Email" />
-                            {errors.email?.type === 'required' && <p className='text-red-500'> Write Your Email First. </p>}
-
+                            <input type="email" {...register('email', { required: true, pattern: /^[a-zA-Z0-9._%+-]+@gmail\.com$/ })} className="input" placeholder="Email" />
+                            {errors.email?.type === 'required' && <p className='text-red-500'> Please provide your valid Email.. </p>}
+                            {errors.email?.type === 'pattern' && <p className='text-red-500'> Please provide your valid Email your own.. </p>}
 
                             <label className="label">Password</label>
                             <input type="password" {...register('password', { minLength: 6, required: true, pattern: /^(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,}$/ })} className="input" placeholder="Password" />
+
                             {errors.password?.type === 'required' && <p className='text-red-500'> Give the Password Frst. </p>}
                             {errors.password?.type == 'minLength' && <p className='text-red-500'> Password Must Be 6 Chatacter. </p>}
                             {errors.password?.type == 'pattern' && <p className='text-red-500'> Password Must Contain special Charecter. </p>}

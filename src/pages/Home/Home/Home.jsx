@@ -12,10 +12,13 @@ const Home = () => {
   const { userRole } = useRole()
   const { user } = UseAuth()
 
+  console.log('555-', userRole)
+
   return (
+
     <div>
       <p>role -- {userRole} </p>
-      <p>role -- {user?.email} </p>
+      <p>email -- {user?.email} </p>
 
       <Banar> </Banar>
 

@@ -25,7 +25,7 @@ const MyParcels = () => {
 
         Swal.fire({
             title: "Are you sure?",
-            text: "Do you wan to delete this?",
+            text: "Do you want to delete this?",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
@@ -34,9 +34,8 @@ const MyParcels = () => {
         })
             .then((result) => {
                 if (result.isConfirmed)
-                    axios.delete(`/delete-parcels/${id}`)
+                    axios.delete(`/delete-parcels/${id}`) // this is params- /, ?- query.
                         .then(res => {
-
                             if (res.data.deletedCount) {
                                 refetch()
                                 Swal.fire({
@@ -47,7 +46,6 @@ const MyParcels = () => {
                             }
                         });
             });
-
     }
 
     return (
@@ -81,7 +79,7 @@ const MyParcels = () => {
                                             <Link to={`/dashboard/payment/${p._id}`}>
                                                 <button className='btn btn-sm bg-[#caeb66]'> Pay </button>
                                             </Link>
-                                    } 
+                                    }
                                 </td>
 
                                 <td> {p.deliveryStatus ? p.deliveryStatus : 'Pay First'} </td>

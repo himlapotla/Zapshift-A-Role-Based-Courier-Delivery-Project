@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Logo from '../../components/Logo/Logo'
 import { Link, NavLink } from 'react-router'
 import UseAuth from '../../hooks/UseAuth'
@@ -6,17 +6,23 @@ import useRole from '../../hooks/useRole'
 
 const Navbar = () => {
 
+    const [role, setRole] = useState('user')
     const { user, logOutUser } = UseAuth()
     const { userRole } = useRole()
+
+    useEffect(() => {
+        if (userRole) {
+            setRole(userRole)
+        }
+    }, [userRole])
 
     const Links = <>
         <li> <NavLink to={'/about'}> About Us </NavLink> </li>
         <li> <NavLink to={'/send-parcel'}> Send Parcel </NavLink> </li>
         <li> <NavLink to={'/coverage'}> Coverage </NavLink> </li>
+
         {
-
-
-            userRole === 'user' && <>
+            role === 'user' && <>
                 <li> <NavLink to={'/dashboard/my-parcels'}> My Parcels </NavLink> </li>
                 <li> <NavLink to={'/rider'}> Be a Rider </NavLink> </li>
                 <li> <NavLink to={'/dashboard'}> User Dashboard </NavLink> </li>
@@ -24,20 +30,23 @@ const Navbar = () => {
 
         }
         {
-            userRole === 'admin' && <>
+            role === 'admin' && <>
                 <li> <NavLink to={'/dashboard'}> Admin Dashboard </NavLink> </li>
             </>
         }
         {
-            userRole === 'rider' && <>
+            role === 'rider' && <>
                 <li> <NavLink to={'/dashboard'}> Rider Dashboard </NavLink> </li>
             </>
         }
+
     </>
 
     const handleOut = () => {
         logOutUser()
-            .then()
+            .then(
+                setRole('user')
+            )
             .catch(err => {
                 console.log(err)
             })

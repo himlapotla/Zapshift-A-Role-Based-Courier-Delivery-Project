@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { AuthContext } from './AuthContext'
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
 import { auth } from '../../firebase/firebase.init'
+import useRole from '../../hooks/useRole'
 
 const googleProvider = new GoogleAuthProvider()
 // it is outside of the AutthProvider component caause on re-rendering that component

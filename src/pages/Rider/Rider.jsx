@@ -16,6 +16,8 @@ const Rider = () => {
   const regionsDuplicate = serviceCenters.map(c => c.region)
   // here in the regionsDuplicate variable all the data (named by region from every array) has been stored.
   const regions = [...new Set(regionsDuplicate)]
+  // Set is a built-in JavaScript object that stores unique values.
+  // ... (spread operator) converts the Set back into an array.
 
   const watchRiderRegion = watch('riderRegion')
 
@@ -23,43 +25,12 @@ const Rider = () => {
     const regionAllDistricts = serviceCenters.filter(d => d.region === region)
     //  here in regionAllDistricts - all the objects that containing region=that passed value(region), has been stored. Filter only stors those which matchs.
     const allDistricts = regionAllDistricts.map(d => d.district)
+    // Go through every object in regionAllDistricts and create a new array containing only the district value from each object.
     return allDistricts
   }
 
-  // const handleRider = async (data) => {
-  //   try {
-  //     axios.post('/create-rider', data)
-  //       .then(res => {
-  //         if (res.data.insertedId) {
-  //           Swal.fire({
-  //             title: 'Your Request has been submitted. Please wait for confirmation.',
-  //             icon: "warning",
-  //             confirmButtonColor: "#3085d6",
-  //             cancelButtonColor: "#d33",
-  //             confirmButtonText: "OK"
-  //           })
-  //         }
-  //       })
-  //   }
-  //   catch (error) {
-  //     const status = error.response?.status
-  //     if (status === 409) {
-  //       Swal.fire({
-  //             title: 'Do not hurry.',
-  //             icon: "warning",
-  //             confirmButtonColor: "#3085d6",
-  //             cancelButtonColor: "#d33",
-  //             confirmButtonText: "OK"
-  //           })
-  //     }
-  //   }
-
-  // }
-
-  // ✅ Correct
-
   const handleRider = async (data) => {
-    // console.log(data)
+    
     try {
       const res = await axios.post('/create-rider', data)  // await!
       if (res.data.insertedId) {
@@ -75,7 +46,7 @@ const Rider = () => {
       const status = error.response?.status
       if (status === 409) {
         Swal.fire({
-          title: 'Do not hurry.',
+          title: 'Do not hurry. Your Request is under way..',
           icon: "warning",
           confirmButtonColor: "#3085d6",
           confirmButtonText: "OK"

@@ -8,10 +8,10 @@ const Login = () => {
 
   const [firebaseErr, setFirebaseErr] = useState(null)
 
-  const { register, handleSubmit, errors } = useForm()
+  const { register, handleSubmit,  formState: { errors } } = useForm()
   const { signInUser } = UseAuth()
   const location = useLocation()
-  // console.log(location)
+  console.log(location)
   const navigate = useNavigate()
 
   const handleLogin = (data) => {
@@ -37,12 +37,13 @@ const Login = () => {
           <p className='text-4xl font-bold'> Please LogIn.. </p>
 
           <form onSubmit={handleSubmit(handleLogin)}>
+
             <fieldset className="fieldset">
 
               <label className="label">Email</label>
               <input type="email" {...register('email', { required: true, })} className="input" placeholder="Email" />
-              {errors?.email.type == "required" && <p className='text-red-500'> Give the Email Frst. </p>}
-              {/* llearnt -- optonal chaining error?.*/}
+              {errors?.email?.type === "required" && <p className='text-red-500'> Give the Email Frst. </p>}
+              {/* errors.email?.type -- errors definitely exists, but errors.email might not exist */}
 
               <label className="label">Password</label>
               <input type="password" {...register('password')} className="input" placeholder="Password" />

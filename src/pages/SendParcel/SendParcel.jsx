@@ -12,6 +12,7 @@ const SendParcel = () => {
     const serviceCenters = useLoaderData()
     const regionsDuplicate = serviceCenters.map(c => c.region)
     const regions = [...new Set(regionsDuplicate)]
+
     const axiosSecurity = useAxiosSecurity()
     const { user } = UseAuth()
     const navigate = useNavigate()
@@ -24,6 +25,7 @@ const SendParcel = () => {
         const allDistricts = regionAllDistricts.map(d => d.district)
         return allDistricts
     }
+
 
     const handleSendParcel = (data) => {
 
@@ -53,10 +55,10 @@ const SendParcel = () => {
 
         if (data.parcelType === 'non-document' && data.parcelWeight > 3) {
             if (isSameDistrict == true) {
-                cost = extraWeight * 40 + 110
+                cost = extraWeight * 20 + 100
             }
             else {
-                cost = extraWeight * 40 + 150
+                cost = extraWeight * 20 + 150
             }
         }
 
@@ -101,12 +103,12 @@ const SendParcel = () => {
                         })
                 }
             });
-        // Axios automatically does two things behind the scenes: Serializes your data object → JSON.stringify(data) → turns it into a JSON string. Sets the header → Content-Type: application/json automatically
+        // Axios automatically does two things behind the scenes: Serializes your data object → JSON.stringify(data) → turns it into a JSON string. Sets the header → Content-Type: application/json automatically.
     }
 
     return (
-        <div>
-            <h2 className='text-4xl font-bold'> Send A Parcel </h2>
+        <div className='mt-9'>
+            <h2 className='text-4xl text-[#abcf3f] font-bold'> Send Your Parcel </h2>
 
             <form className='pb-10 text-black' onSubmit={handleSubmit(handleSendParcel)}>
 
@@ -158,7 +160,7 @@ const SendParcel = () => {
                         <fieldset className="fieldset">
                             <legend className="fieldset-legend"> Pick A District </legend>
                             <select className="select" {...register('senderDistrict')}>
-                                <option disabled={true}> Pick A District </option>
+                                
                                 {
                                     findDistrict(senderRegion).map(d => <option> {d} </option>)
                                 }
@@ -192,7 +194,6 @@ const SendParcel = () => {
                         <fieldset className="fieldset">
                             <legend className="fieldset-legend"> Pick A District </legend>
                             <select className="select" {...register('reciverDistrict')}>
-                                <option disabled={true}> Pick A District </option>
                                 {
                                     findDistrict(receiverRegion).map(d => <option> {d} </option>)
                                 }

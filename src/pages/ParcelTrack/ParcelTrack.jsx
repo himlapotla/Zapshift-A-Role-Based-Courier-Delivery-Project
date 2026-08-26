@@ -24,7 +24,6 @@ const ParcelTrack = () => {
         {
           tracking.map((log, index) => <li className='p-4'>
 
-
             <div className="timeline-start">
               <p>{new Date(log.createdAt).toLocaleDateString()}</p>
               <p>{new Date(log.createdAt).toLocaleTimeString()}</p>
