@@ -86,6 +86,7 @@ export const router = createBrowserRouter([
         path: 'my-parcels',
         element: <MyParcels> </MyParcels>
       },
+
       {
         path: 'payment/:parcelId',
         element: <Payment> </Payment>,
@@ -93,7 +94,7 @@ export const router = createBrowserRouter([
         // for the dynamic routes params are values from the URL.
       },
       {
-        path: 'payment-success',
+        path: 'payment-successs',
         element: <PaymentSuccess> </PaymentSuccess>
       },
       {
@@ -104,6 +105,8 @@ export const router = createBrowserRouter([
         path: 'payment-history',
         element: <PaymentHistory> </PaymentHistory>
       },
+
+
       {
         path: 'approve-rider',
         element: <AdminRoutes> <ApproveRider> </ApproveRider> </AdminRoutes>
@@ -116,6 +119,7 @@ export const router = createBrowserRouter([
         path: 'assign-rider',
         element: <AdminRoutes> <AssignRider> </AssignRider> </AdminRoutes>
       },
+
 
       {
         path: 'assigned-tasks',

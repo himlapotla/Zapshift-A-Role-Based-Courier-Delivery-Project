@@ -4,8 +4,8 @@ const Loading = () => {
     return (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
             <div style={{
-                width: '40px',
-                height: '40px',
+                width: '100px',
+                height: '100px',
                 border: '4px solid #e5e7eb',
                 borderTop: '4px solid #111',
                 borderRadius: '50%',

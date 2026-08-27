@@ -15,7 +15,7 @@ const DashboardHome = () => {
     if (userRole === 'admin') {
         return <AdminDashboardHome> </AdminDashboardHome>
     }
-    if (userRole === 'admin') {
+    if (userRole === 'rider') {
         return <RiderDashboardHome> </RiderDashboardHome>
     }
     else {
