@@ -8,13 +8,13 @@ const PaymentHistory = () => {
 
     const { user } = UseAuth()
     const axios = useAxiosSecurity()
-    const {userRole} = useRole()
-    console.log(userRole)
+    const {userRole} = useRole() 
+    // console.log(userRole)
 
     const { data: payments = [] } = useQuery({
         queryKey: ['payments', user.email],
         queryFn: async () => {
-            const res = await axios.get(`/see-all-payments?email=${user.email}`)
+            const res = await axios.get(`/see-all-payments`)
             return res.data
         }
     })

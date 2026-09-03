@@ -5,6 +5,7 @@ import { FiShieldOff } from 'react-icons/fi'
 import { FaSearch, FaUserShield } from 'react-icons/fa'
 import Swal from 'sweetalert2'
 import UseAuth from '../../../hooks/UseAuth'
+import { data } from 'react-router'
 
 const UserManagement = () => {
 
@@ -13,10 +14,7 @@ const UserManagement = () => {
     const [searchText, setSearchText] = useState('')
 
     const { refetch, data: users = [] } = useQuery({
-        // queryKey: ['my-user', ]-(this is the label) React Query stores the fetched data in memory (cache) using this label. Whenever i ask for data, it first checks — "do I already have a box(cached data - returned from queryFn) with this label?" If yes, it gives you that data instantly without making a network request. 
-        // here searchText - searchText changes ✅The queryKey label changes ✅React Query sees a new label it hasn't seen before then It automatically fires a new API request instantly ✅That's why results come immediately as i typed.  
-        queryKey: [searchText],
-        // queryKey always cached the data, so that no need to refetch the same data at letter. It cachs data on the basis of a value. Here the value is searchText. So, every time searchTeaxt changes it calls the api at every single time....!
+        queryKey: ['my-user', searchText],
         queryFn: async () => {
             const res = await axios.get(`/all-users?searchText=${searchText}`)
             return res.data
@@ -89,10 +87,10 @@ const UserManagement = () => {
     return (
 
         <div>
-            <p> search text -- {searchText} </p>
+
             <div className='py-6 px-3'>
                 <label> Search the User </label> <br />
-                <input onChange={ (e) => setSearchText(e.target.value) } type="text" className="input" placeholder=' search user' />
+                <input onChange={(e) => setSearchText(e.target.value)} type="text" className="input" placeholder=' search user' /> 
             </div>
 
             <div className="overflow-x-auto">
@@ -155,3 +153,21 @@ const UserManagement = () => {
 }
 
 export default UserManagement
+
+
+
+
+
+
+
+
+
+
+
+
+// queryKey: ['my-user', ]-(this is the label) React Query stores the fetched data in memory (cache) using this label. Whenever i ask for data, it first checks — "do I already have a box(cached data - returned from queryFn) with this label?" If yes, it gives you that data instantly without making a network request.
+// here searchText - searchText changes ✅The queryKey label changes ✅React Query sees a new label it hasn't seen before then It automatically fires a new API request instantly ✅That's why results come immediately as i typed.
+
+
+
+// queryKey always cached the data, so that no need to refetch the same data at letter. It cachs data on the basis of a value. Here the value is searchText. So, every time searchTeaxt changes it calls the api at every single time....!

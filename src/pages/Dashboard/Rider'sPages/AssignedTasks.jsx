@@ -18,8 +18,14 @@ const AssignedTasks = () => {
     })
 
     const handleDeliveryStatus = (parcel, status) => {
-        const statusInfo = { deliveryStatus: status, riderId: parcel.rider_id, parcelName: parcel.parcelName, trackingId: parcel.trackingId }
         
+        const statusInfo = {
+            deliveryStatus: status,
+            riderId: parcel.rider_id,
+            parcelName: parcel.parcelName,
+            trackingId: parcel.trackingId,
+        }
+
         let messeg = `Parcle Status is updated with ${status.split('_').join(' ')}`
 
         axios.patch(`/parcel/${parcel._id}/status`, statusInfo)
@@ -28,6 +34,27 @@ const AssignedTasks = () => {
                     parcleRefetch()
                     Swal.fire({
                         title: messeg,
+                        icon: "warning",
+                        confirmButtonColor: "#3085d6",
+                        confirmButtonText: "OK"
+                    })
+                }
+            })
+    }
+
+    const rejectParcel = (parcel,) => {
+
+        const document = {
+            status: 'amount_paid',
+            rider_id: parcel.rider_id,
+        }
+
+        axios.patch(`/parcel-reject/${parcel._id}`, document)
+            .then(res => {
+                if (res.data.modifiedCount) {
+                    parcleRefetch()
+                    Swal.fire({
+                        title: "Successfuly Rejected..",
                         icon: "warning",
                         confirmButtonColor: "#3085d6",
                         confirmButtonText: "OK"
@@ -60,7 +87,7 @@ const AssignedTasks = () => {
                                     {
                                         p.deliveryStatus === 'driver_assigned' ? <>
                                             <button className='btn-sm mx-1 p-1 bg-green-400' onClick={() => handleDeliveryStatus(p, 'rider_arriving')}> Accept </button>
-                                            <button className='btn-sm p-1 bg-red-400'> Reject </button>
+                                            <button className='btn-sm p-1 bg-red-400' onClick={() => rejectParcel(p, 'amount_paid')}> Reject </button>
                                         </>
                                             :
                                             <span className='text-green-600 font-bold'> Accepted </span>

@@ -18,9 +18,7 @@ const ApproveRider = () => {
     })
 
     const updateRiderStatus = (rider, status) => {
-
         const updateInfo = { status: status, ridersEmail: rider.riderEmail }
-
         axios.patch(`/approve-rider/${rider._id}`, updateInfo)
             .then(res => {
                 if (res.data.modifiedCount) {
@@ -74,13 +72,11 @@ const ApproveRider = () => {
 
     }
 
-    
+
 
     return (
         <div>
             <h2> Approve Rides : {riders.length} </h2>
-
-            
 
             <table className="table table-zebra">
                 {/* head */}

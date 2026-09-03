@@ -9,19 +9,19 @@ const AssignRider = () => {
     const riderModalRef = useRef()
     const [selectedParcel, setSelectedParcel] = useState(null)
 
-    const { refetch : parcelRfetch, data: parcel = [] } = useQuery({
-        queryKey: ['parcel', 'pending-pickup'],
+    const { refetch: parcelRfetch, data: parcel = [] } = useQuery({
+        queryKey: ['parcel', 'amount_paid'],
         queryFn: async () => {
             const res = await axios.get(`/my-parcels?deli_statuss=amount_paid`)
             return res.data
         }
     })
 
-    const {refetch: riderRefetch, data: riders = [] } = useQuery({
+    const { refetch: riderRefetch, data: riders = [] } = useQuery({
         queryKey: ['riders', selectedParcel?.senderDistrict],
         enabled: !!selectedParcel,
         queryFn: async () => {
-            const rres = await axios.get(`/get-riders?status=approved&district=${selectedParcel.senderDistrict}&workStatus=available`)
+            const rres = await axios.get(`/get-riders?status=approved&district=${selectedParcel.senderDistrict}`)
             return rres.data
         }
     })
@@ -32,6 +32,7 @@ const AssignRider = () => {
             rId: rider._id,
             rName: rider.riderName,
             rEmail: rider.riderEmail,
+
             parcelId: selectedParcel._id,
             parcelName: selectedParcel.parcelName,
             trackingId: selectedParcel.trackingId
@@ -39,6 +40,7 @@ const AssignRider = () => {
 
         axios.patch(`/update-parcel/${selectedParcel._id}`, assignRiderInfo)
             .then((res) => {
+                console.log('ggggg----', res)
                 if (res.data.modifiedCount) {
                     parcelRfetch()
                     riderRefetch()
@@ -60,7 +62,6 @@ const AssignRider = () => {
 
     return (
         <div>
-
             <dialog ref={riderModalRef} id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
 
@@ -82,7 +83,7 @@ const AssignRider = () => {
                                         <th> {rider.riderDistrict} </th>
                                         <th> {rider.workStatus} </th>
                                         <th>
-                                            <button onClick={() => handlAssignRider(rider)} className='bg-[#caeb66] p-1 btn'> Assign rider </button>
+                                            <button onClick={() => handlAssignRider(rider)} className='bg-[#caeb66] p-1 btn'> Assign rider2 </button>
                                         </th>
                                     </tr>
                                 )
@@ -96,7 +97,6 @@ const AssignRider = () => {
                         </form>
                     </div>
                 </div>
-
             </dialog>
 
             <table className="table table-zebra">
@@ -113,7 +113,6 @@ const AssignRider = () => {
                     </tr>
                 </thead>
                 <tbody>
-
                     {
                         parcel.map((p, i) =>
                             <tr>
@@ -130,11 +129,9 @@ const AssignRider = () => {
                             </tr>
                         )
                     }
-
                 </tbody>
             </table>
         </div>
     )
 }
-
 export default AssignRider

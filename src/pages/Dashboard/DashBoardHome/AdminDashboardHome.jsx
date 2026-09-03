@@ -1,86 +1,82 @@
-// import React from 'react'
-// import useAxiosSecurity from '../../../hooks/useAxiosSecurity'
-// import { useQuery } from '@tanstack/react-query'
-// import { Pie, PieChart } from 'recharts'
-
-// const AdminDashboardHome = () => {
-
-//   const axios = useAxiosSecurity()
-
-//   const { data: deliveryStats = [] } = useQuery({
-//     queryKey: ['delivery-stats'],
-//     queryFn: async () => {
-//       const res = await axios.get('/parcels/delivery-status/stats')
-//       return res.data
-//     }
-//   })
-//   console.log(deliveryStats)
-
-//   const chartData = (data) => {
-//     // return 
-//   }
-
-//   return (
-//     // <div>
-
-//     //   <div className="stats shadow">
-
-//     //     {
-//     //       deliveryStats.map(stat => <div className="stat">
-//     //         <div className="stat-figure text-secondary">
-//     //           <svg
-//     //             xmlns="http://www.w3.org/2000/svg"
-//     //             fill="none"
-//     //             viewBox="0 0 24 24"
-//     //             className="inline-block h-8 w-8 stroke-current"
-//     //           >
-//     //             <path
-//     //               strokeLinecap="round"
-//     //               strokeLinejoin="round"
-//     //               strokeWidth="2"
-//     //               d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
-//     //             ></path>
-//     //           </svg>
-//     //         </div>
-//     //         <div className="stat-title text-lg">{stat._id}</div>
-//     //         <div className="stat-value">{stat.count}</div>
-//     //       </div>
-
-//     //       )
-
-//     //     }
-
-
-//     //   </div>
-
-//     //   <div>
-//     //     <PieChart style={{ width: '100%', maxWidth: '500px', maxHeight: '80vh', aspectRatio: 2 }} responsive>
-//     //       <Pie
-//     //         dataKey="value"
-//     //         startAngle={180}
-//     //         endAngle={0}
-//     //         data={chartData}
-//     //         cx="50%"
-//     //         cy="100%"
-//     //         outerRadius="120%"
-//     //         fill="#8884d8"
-//     //         label
-//     //         isAnimationActive={true}
-//     //       />
-//     //     </PieChart>
-//     //   </div>
-
-//     // </div>
-
-//   )
-// }
-
-// export default AdminDashboardHome
 import React from 'react'
+
+
 
 const AdminDashboardHome = () => {
   return (
-    <div>AdminDashboardHome</div>
+    <div className="min-h-[80vh] p-6">
+
+      {/* Welcome Section */}
+      <div className="rounded-2xl bg-[#caeb66] p-8 mb-6">
+        <p className="text-md font-medium text-gray-700 mb-2">
+          Welcome back, Admin 👋
+        </p>
+
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
+          Admin Dashboard
+        </h1>
+
+        <p className="mt-3 text-gray-700 max-w-xl">
+          Manage your users, parcels, riders and keep track of everything
+          happening in your delivery system.
+        </p>
+      </div>
+
+      {/* Quick Overview */}
+      <div>
+        <h2 className="text-xl font-semibold text-gray-800 mb-4">
+          Quick Overview
+        </h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+          <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <p className="text-sm text-gray-500">Total Users</p>
+            <h3 className="text-3xl font-bold text-gray-800 mt-2">--</h3>
+            <p className="text-sm text-gray-500 mt-2">
+              Registered users
+            </p>
+          </div>
+
+          <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <p className="text-sm text-gray-500">Total Parcels</p>
+            <h3 className="text-3xl font-bold text-gray-800 mt-2">--</h3>
+            <p className="text-sm text-gray-500 mt-2">
+              Parcels in the system
+            </p>
+          </div>
+
+          <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <p className="text-sm text-gray-500">Active Riders</p>
+            <h3 className="text-3xl font-bold text-gray-800 mt-2">--</h3>
+            <p className="text-sm text-gray-500 mt-2">
+              Currently available riders
+            </p>
+          </div>
+
+          {/* Delivered Parcels */}
+          <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <p className="text-sm text-gray-500">Delivered Parcels</p>
+            <h3 className="text-3xl font-bold text-gray-800 mt-2">--</h3>
+            <p className="text-sm text-gray-500 mt-2">Successfully delivered</p>
+          </div>
+
+          <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
+            <p className="text-sm text-gray-500">Total Revenue</p>
+            <h3 className="text-3xl font-bold text-gray-800 mt-2">$--</h3>
+            <p className="text-sm text-gray-500 mt-2">Total payment received</p>
+          </div>
+
+          <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm"> 
+            <p className="text-sm text-gray-500">Pending Parcels</p> 
+            <h3 className="text-3xl font-bold text-gray-800 mt-2">--</h3> 
+            <p className="text-sm text-gray-500 mt-2">Waiting to be delivered</p> 
+          </div>
+
+        </div>
+      </div>
+
+    </div>
   )
 }
 
