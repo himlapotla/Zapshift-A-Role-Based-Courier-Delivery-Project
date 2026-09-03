@@ -40,8 +40,7 @@ const AssignRider = () => {
 
         axios.patch(`/update-parcel/${selectedParcel._id}`, assignRiderInfo)
             .then((res) => {
-                console.log('ggggg----', res)
-                if (res.data.modifiedCount) {
+                if (res.data.f.modifiedCount || res.data.g.modifiedCount) {
                     parcelRfetch()
                     riderRefetch()
                     riderModalRef.current.close()
@@ -83,7 +82,7 @@ const AssignRider = () => {
                                         <th> {rider.riderDistrict} </th>
                                         <th> {rider.workStatus} </th>
                                         <th>
-                                            <button onClick={() => handlAssignRider(rider)} className='bg-[#caeb66] p-1 btn'> Assign rider2 </button>
+                                            <button onClick={() => handlAssignRider(rider)} className='bg-[#caeb66] p-1 btn'> Assign </button>
                                         </th>
                                     </tr>
                                 )

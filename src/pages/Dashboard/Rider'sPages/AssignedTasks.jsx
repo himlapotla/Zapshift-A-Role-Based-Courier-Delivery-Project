@@ -12,13 +12,13 @@ const AssignedTasks = () => {
     const { refetch: parcleRefetch, data: parcel = [] } = useQuery({
         queryKey: ['parcell', user?.email],
         queryFn: async () => {
-            const res = await axios.get(`/rider-parcels?riderEmail=${user.email}&deliveryStatus=driver_assigned`)
+            const res = await axios.get(`/rider-parcels?riderEmail=${user.email}`)
             return res.data
         }
     })
 
     const handleDeliveryStatus = (parcel, status) => {
-        
+
         const statusInfo = {
             deliveryStatus: status,
             riderId: parcel.rider_id,
@@ -96,12 +96,16 @@ const AssignedTasks = () => {
 
                                 <td>
                                     {
-                                        (p.deliveryStatus === 'rider_arriving' || p.deliveryStatus === 'marked_as_picked_up') &&
+                                        (p.deliveryStatus === 'rider_arriving') &&
                                         <>
-                                            <button className='btn-sm mx-1 p-1 bg-green-400' onClick={() => handleDeliveryStatus(p, 'marked_as_picked_up')}> Mark as Pickup </button>
+                                            <button className='btn-sm mx-1 p-1 bg-green-400' onClick={() => handleDeliveryStatus(p, 'marked_as_picked_up')}> Parcel Pickedup </button>
+                                        </>
+                                    }
 
-                                            <button className='btn-sm mx-1 p-1 bg-green-400' onClick={() => handleDeliveryStatus(p, 'marked_as_delivered')}> Mark as Delivered </button>
-
+                                    {
+                                        (p.deliveryStatus === 'marked_as_picked_up') &&
+                                        <>
+                                            <button className='btn-sm mx-1 p-1 bg-green-400' onClick={() => handleDeliveryStatus(p, 'marked_as_delivered')}> Parcel Delivered </button>
                                         </>
                                     }
                                 </td>

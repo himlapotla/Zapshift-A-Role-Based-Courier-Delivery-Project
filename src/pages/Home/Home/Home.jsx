@@ -16,9 +16,9 @@ const Home = () => {
 
   return (
 
-    <div>
-      <p>role -- {userRole} </p>
-      <p>email -- {user?.email} </p>
+    <div className='space-y-10'>
+      {/* <p>role -- {userRole} </p>
+      <p>email -- {user?.email} </p> */}
 
       <Banar> </Banar>
 

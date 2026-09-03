@@ -3,6 +3,7 @@ import Logo from '../../components/Logo/Logo'
 import { Link, NavLink } from 'react-router'
 import UseAuth from '../../hooks/UseAuth'
 import useRole from '../../hooks/useRole'
+import Swal from 'sweetalert2'
 
 const Navbar = () => {
 
@@ -45,7 +46,11 @@ const Navbar = () => {
     const handleOut = () => {
         logOutUser()
             .then(
-                setRole('user')
+                setRole('user'),
+                Swal.fire({
+                    title: 'Logout Successful!',
+                    icon: 'success'
+                })
             )
             .catch(err => {
                 console.log(err)

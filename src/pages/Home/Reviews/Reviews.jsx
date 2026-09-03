@@ -20,7 +20,9 @@ const Reviews = ({ reviewsPromise }) => {
     <div className='pb-20'>
       <div>
         <p className='text-3xl text-center pb-1 font-bold'> Our Reviews </p>
-        <p className='text-xl text-center pb-13 w-8/12 mx-auto'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, vero nulla hic accusamus neque natus ullam tempore esse dignissimos numquam obcaecati corrupti.</p>
+        <p className='text-xl text-center pb-13 w-8/12 mx-auto'>
+          Thousands of customers trust us to deliver their parcels safely and on time. Here’s what some of our customers have to say about their experience with our delivery service.
+        </p>
       </div>
 
       <Swiper

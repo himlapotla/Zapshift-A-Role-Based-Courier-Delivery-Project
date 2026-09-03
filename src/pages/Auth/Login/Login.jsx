@@ -3,12 +3,13 @@ import { useForm } from 'react-hook-form'
 import UseAuth from '../../../hooks/UseAuth'
 import { Link, Navigate, useLocation, useNavigate } from 'react-router'
 import SocialLogin from '../SocialLogin/SocialLogin'
+import Swal from 'sweetalert2'
 
 const Login = () => {
 
   const [firebaseErr, setFirebaseErr] = useState(null)
 
-  const { register, handleSubmit,  formState: { errors } } = useForm()
+  const { register, handleSubmit, formState: { errors } } = useForm()
   const { signInUser } = UseAuth()
   const location = useLocation()
   // console.log(location)
@@ -20,6 +21,10 @@ const Login = () => {
       .then(res => {
         console.log(res.user);
         navigate(location.state || '/')
+        Swal.fire({
+          title: 'Login Successful!',
+          icon: 'success'
+        })
       })
       .catch(err => {
         if (err) {
@@ -59,7 +64,7 @@ const Login = () => {
               <p> Don't have an account? <span className='text-blue-400 underline'>
                 <Link state={location.state} to={'/register'}> Register here.. </Link> </span> </p>
             </fieldset>
-            
+
           </form>
 
           <SocialLogin> </SocialLogin>

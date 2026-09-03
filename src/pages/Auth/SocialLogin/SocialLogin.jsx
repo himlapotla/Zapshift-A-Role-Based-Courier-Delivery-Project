@@ -2,6 +2,7 @@ import React from 'react'
 import UseAuth from '../../../hooks/UseAuth'
 import { useLocation, useNavigate } from 'react-router'
 import useAxiosSecurity from '../../../hooks/useAxiosSecurity'
+import Swal from 'sweetalert2'
 
 const SocialLogin = () => {
 
@@ -17,15 +18,20 @@ const SocialLogin = () => {
                 // console.log(res.user);
                 navigate(location?.state || '/')
 
+                Swal.fire({
+                    title: 'Login Successful!',
+                    icon: 'success'
+                })
+
                 const userData = {
                     displayName: res.user.displayName,
                     email: res.user.email,
                     photoURL: res.user.photoURL
                 }
                 axios.post('/create-users', userData)
-                .then(res => {
-                    console.log('user data inserted - ', res.data,)
-                })
+                    .then(res => {
+                        console.log('user data inserted - ', res.data,)
+                    })
             })
             .catch(err => {
                 console.log(err);
