@@ -3,11 +3,11 @@ import service from '../../../assets/service.png'
 
 const ServicesSection = () => {
     return (
-        <div className="bg-gray-100 py-16">
+        <div className="bg-gray-100 py-8">
 
             {/* HOW IT WORKS */}
             <div className="max-w-6xl mx-auto px-6">
-                <h2 className="text-2xl font-semibold mb-8 text-gray-700">
+                <h2 className="text-2xl font-bold mb-8 flex justify-center text-gray-700">
                     How it Works
                 </h2>
 

@@ -4,7 +4,7 @@ import UseAuth from './UseAuth'
 import { useNavigate } from 'react-router'
 
 const axiosSecurity = axios.create({
-  baseURL: 'http://localhost:3000'
+  baseURL: 'https://courier-delivery-zapshift.vercel.app/'
 })
 
 const useAxiosSecurity = () => {

@@ -50,66 +50,66 @@ const MyParcels = () => {
 
 
     return (
-        <div className="overflow-x-auto">
+            <div className="overflow-x-auto">
 
-            <table className="table table-zebra">
-                {/* head */}
-                <thead>
-                    <tr className='bg-[#caeb66]'>
-                        <th>No.</th>
-                        <th>Parcel Name</th>
-                        <th>Sending Cost</th>
-                        <th>Payment</th>
-                        <th>Delivery Status</th>
-                        <th>trackingId</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        parcell.map((p, i) =>
-                            <tr >
-                                <td>{i + 1}</td>
-                                <td>{p.parcelName}</td>
-                                <td> {p.cost} </td>
+                <table className="table table-zebra">
+                    {/* head */}
+                    <thead>
+                        <tr className='bg-[#caeb66]'>
+                            <th>No.</th>
+                            <th>Parcel Name</th>
+                            <th>Sending Cost</th>
+                            <th>Payment</th>
+                            <th>Delivery Status</th>
+                            <th>trackingId</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            parcell.map((p, i) =>
+                                <tr >
+                                    <td>{i + 1}</td>
+                                    <td>{p.parcelName}</td>
+                                    <td> {p.cost} </td>
 
-                                <td>
-                                    {
-                                        p.paymentStatus === 'paid' ?
-                                            <span className='text-green-500'> Paid </span> :
-                                            <Link to={`/dashboard/payment/${p._id}`}>
-                                                <button className='btn btn-sm bg-[#caeb66]'> Pay </button>
-                                            </Link>
-                                    }
-                                </td>
+                                    <td>
+                                        {
+                                            p.paymentStatus === 'paid' ?
+                                                <span className='text-green-500'> Paid </span> :
+                                                <Link to={`/dashboard/payment/${p._id}`}>
+                                                    <button className='btn btn-sm bg-[#caeb66]'> Pay </button>
+                                                </Link>
+                                        }
+                                    </td>
 
-                                <td> {p.deliveryStatus ? p.deliveryStatus : 'Pay First'} </td>
+                                    <td> {p.deliveryStatus ? p.deliveryStatus : 'Pay First'} </td>
 
-                                <td>
-                                    <Link className='underline text-blue-500' to={`/parcel-track/${p.trackingId}`}> {p.trackingId} </Link>
-                                </td>
+                                    <td>
+                                        <Link className='underline text-blue-500' to={`/parcel-track/${p.trackingId}`}> {p.trackingId} </Link>
+                                    </td>
 
-                                <td>
-                                    <button className='btn btn-square mx-1 hover:bg-[#caeb66]'>
-                                        <FaMagnifyingGlass> </FaMagnifyingGlass>
-                                    </button>
-                                    <button className='btn btn-square mx-1 hover:bg-[#caeb66]'>
-                                        <FiEdit> </FiEdit>
-                                    </button>
-                                    <button onClick={() => handelParcelDelete(p._id)}
-                                        // whenever it is needed to pass an arguments to an event handler, wrap it in an arrow function — otherwise React will call it immediately during render.() after a function = run it now. Without () (or wrapped in arrow) = run it later when clicked.
+                                    <td>
+                                        <button className='btn btn-square mx-1 hover:bg-[#caeb66]'>
+                                            <FaMagnifyingGlass> </FaMagnifyingGlass>
+                                        </button>
+                                        <button className='btn btn-square mx-1 hover:bg-[#caeb66]'>
+                                            <FiEdit> </FiEdit>
+                                        </button>
+                                        <button onClick={() => handelParcelDelete(p._id)}
+                                            // whenever it is needed to pass an arguments to an event handler, wrap it in an arrow function — otherwise React will call it immediately during render.() after a function = run it now. Without () (or wrapped in arrow) = run it later when clicked.
 
-                                        className='btn btn-square mx-1 hover:bg-[#caeb66]'>
-                                        <FaTrashCan> </FaTrashCan>
-                                    </button>
-                                </td>
-                            </tr>
-                        )
-                    }
+                                            className='btn btn-square mx-1 hover:bg-[#caeb66]'>
+                                            <FaTrashCan> </FaTrashCan>
+                                        </button>
+                                    </td>
+                                </tr>
+                            )
+                        }
 
-                </tbody>
-            </table>
-        </div>
+                    </tbody>
+                </table>
+            </div>
     )
 }
 

@@ -37,7 +37,7 @@ const Login = () => {
 
   return (
     <div>
-      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+      <div className="card bg-base-100 max-w-sm shrink-0 shadow-2xl">
         <div className="card-body ">
           <p className='text-4xl font-bold'> Please LogIn.. </p>
 

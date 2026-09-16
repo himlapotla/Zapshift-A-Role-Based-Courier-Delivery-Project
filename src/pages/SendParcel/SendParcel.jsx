@@ -107,7 +107,7 @@ const SendParcel = () => {
     }
 
     return (
-        <div className='mt-9'>
+        <div className='mt-8 w-10/12 mx-auto'>
             <h2 className='text-4xl text-[#abcf3f] font-bold'> Send Your Parcel </h2>
 
             <form className='pb-10 text-black' onSubmit={handleSubmit(handleSendParcel)}>
@@ -139,7 +139,7 @@ const SendParcel = () => {
                 <div className='flex pt-10 gap-3'>
 
                     <div className='flex-1'>
-                        <h3 className="font-semibold text-3xl"> Sender Details </h3>
+                        <h3 className="font-semibold sm:text-xl md: text-2xl lg:text-3xl"> Sender Details </h3>
 
                         <label className="label "> Sender Name </label>
                         <input defaultValue={user?.displayName} type="text" {...register('senderName')} className="input w-full" />
@@ -173,7 +173,7 @@ const SendParcel = () => {
                     </div>
 
                     <div className='flex-1'>
-                        <h3 className="font-semibold text-3xl"> Receiver Details </h3>
+                         <h3 className="font-semibold sm:text-xl md: text-2xl lg:text-3xl"> Reciver Details </h3>
 
                         <label className="label "> Receiver Name </label>
                         <input type="text" {...register('receiverName')} className="input w-full" />

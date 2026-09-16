@@ -3,7 +3,7 @@ import Logo from '../../components/Logo/Logo'
 
 function Footer() {
     return (
-        <footer className="text-base-content mt-11 bg-[#e3f5ac] rounded-2xl">
+        <footer className="text-base-content mt-11 font-semibold bg-[#c2db78] rounded-2xl">
 
             <div className="max-w-7xl mx-auto px-6 py-3">
 

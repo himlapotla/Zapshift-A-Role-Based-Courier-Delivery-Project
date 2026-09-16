@@ -17,7 +17,7 @@ const Reviews = ({ reviewsPromise }) => {
   // This follows a common software design idea called the Single Responsibility Principle: each component should have one main job.
 
   return (
-    <div className='pb-20'>
+    <div className='pb-15'>
       <div>
         <p className='text-3xl text-center pb-1 font-bold'> Our Reviews </p>
         <p className='text-xl text-center pb-13 w-8/12 mx-auto'>
@@ -29,7 +29,7 @@ const Reviews = ({ reviewsPromise }) => {
         effect={'coverflow'}
         grabCursor={true}
         centeredSlides={true}
-        slidesPerView={'4'}
+        slidesPerView={'auto'}
         coverflowEffect={{
           rotate: 50,
           stretch: 0,
@@ -43,6 +43,14 @@ const Reviews = ({ reviewsPromise }) => {
         autoplay={{
           delay: 2000,
           disableOnInteraction: false
+        }}
+        breakpoints={{
+          320: {
+            slidesPerView: 2,
+          },
+          724: {
+            slidesPerView: 4,
+          },
         }}
         modules={[EffectCoverflow, Autoplay]}
         className="mySwiper"

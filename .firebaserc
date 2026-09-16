@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "zapshift-bed9f",
+    "prod": "zapshift-bed9f"
+  },
+  "targets": {},
+  "etags": {}
+}

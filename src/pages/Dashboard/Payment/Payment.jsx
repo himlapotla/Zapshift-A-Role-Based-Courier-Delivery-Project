@@ -14,14 +14,12 @@ const Payment = () => {
         queryKey: ['parcel', parcelId],
         queryFn: async () => {
             const res = await axios.get(`/one-parcel/${parcelId}`)
-            // console.log(res.data._id)
             return res.data
         }
     })
 
     const handelPayment = async () => {
         const res = await axios.post('/create-checkout-session', parcel)
-        // console.log('hhyy-', res.data)
         window.location.href = res.data.url
     }
 

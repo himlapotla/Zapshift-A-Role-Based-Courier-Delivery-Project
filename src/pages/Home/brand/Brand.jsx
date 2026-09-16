@@ -12,7 +12,7 @@ import brnd7 from '../../../assets/brands/start_people.png'
 
 const Brand = () => {
     return (
-        <div className='pb-13 w-8/12 mx-auto '>
+        <div className='pb-13 w-9/12 mx-auto p-0 lg:p-7'>
             <Marquee pauseOnHover={true} className='flex gap-7'>
                 <div className='flex gap-13'>
                     <img src={brnd1} alt="" />

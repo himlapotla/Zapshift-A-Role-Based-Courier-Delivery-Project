@@ -4,7 +4,7 @@ import React from 'react'
 const useAxios = () => {
 
     const axiosSimple = axios.create({
-        baseURL: 'http://localhost:3000'
+        baseURL: 'https://courier-delivery-zapshift.vercel.app/'
     })
 
     return axiosSimple
