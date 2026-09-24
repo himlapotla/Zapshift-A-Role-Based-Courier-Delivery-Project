@@ -4,7 +4,7 @@ Introduction:
 
 A full-stack courier delivery management platform designed to connect customers, riders, and administrators through a secure, role-based workflow.
 
-ZapShift is a production-style courier management application built to model how a real delivery business can manage parcels from creation and payment to rider's delivery.&nbsp
+ZapShift is a production-style courier management application built to model how a real delivery business can manage parcels from creation and payment to rider's delivery.&nbsp;&nbsp;
 
 
 
