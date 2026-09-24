@@ -2,98 +2,96 @@
 
 ## ZapShift — Role-Based Courier Delivery Platform.
 
-#### A full-stack courier delivery management platform designed to connect customers, riders, and administrators through a secure, role-based workflow. <br> ZapShift is a production-style courier management application built to model how a real delivery business can manage parcels from creation and payment to rider's delivery.
+### A full-stack courier delivery management platform designed to connect customers, riders, and administrators through a secure, role-based workflow. <br> ZapShift is a production-style courier management application built to model how a real delivery business can manage parcels from creation and payment to rider's delivery.
 
-<br><br><br>
+<br><br>
 
 # Links
 
-🌐 Live url -- [Add your live Firebase URL]
+### 🌐 Live url -- [Add your live Firebase URL]
 
-💻 Frontend Repository -- [Add GitHub repository URL]
+### 💻 Frontend Repository -- [Add GitHub repository URL]
 
-⚙️ Backend Repository -- [Add backend GitHub repository URL]
+### ⚙️ Backend Repository -- [Add backend GitHub repository URL]
 
-🎥 Project Demo (video url) -- [Add demo video URL]
-
-
-
-
-Core Features:
-
-User Features -
-
-User registration and login
-
-Firebase authentication
-
-Social login
-
-Create and manage parcels
-
-View personal parcel history
-
-Track parcel delivery status
-
-Make online payments through Stripe
-
-View payment history
-
-Access a personalized user dashboard
-
-Apply to become a rider
+### 🎥 Project Demo (video url) -- [Add demo video URL]
 
 
 
-Rider Features - 
 
-Rider-specific dashboard
+# Core Features:
 
-View assigned delivery tasks
+## User Features -
 
-Accept/manage assigned parcels
+# User registration and login
 
-Update delivery progress
+# Firebase authentication
 
-View completed delivery tasks
+# Social login
 
-Rider approval workflow
+# Create and manage parcels
 
+# View personal parcel history
 
+# Track parcel delivery status
 
-Admin Features - 
+# Make online payments through Stripe
 
-Dedicated admin dashboard
+# View payment history
 
-Manage users
+# Access a personalized user dashboard
 
-Manage rider applications
+# Apply to become a rider
 
-Approve riders
+<br>
 
-Assign riders to parcels
+## Rider Features - 
 
-Monitor parcel operations
+# Rider-specific dashboard
 
-Role-based access to administrative features
+# View assigned delivery tasks
 
+# Accept/manage assigned parcels
 
+# Update delivery progress
 
-Payment System - 
+# View completed delivery tasks
 
-Stripe Checkout integration
+# Rider approval workflow
 
-Secure checkout-session creation
+<br>
 
-Payment success/cancellation handling
+## Admin Features - 
 
-Payment history
+# Dedicated admin dashboard
 
-Parcel/payment relationship tracking
+# Manage users
 
+# Manage rider applications
 
+# Approve riders
 
-Parcel Management - 
+# Assign riders to parcels
+
+# Monitor parcel operations
+
+# Role-based access to administrative features
+
+<br>
+
+## Payment System - 
+
+# Stripe Checkout integration
+
+# Secure checkout-session creation
+
+# Payment success/cancellation handling
+
+# Parcel/payment relationship tracking
+
+<br>
+
+## Parcel Management - 
 
 A parcel can move through different stages of the delivery lifecycle, including:
 
@@ -114,46 +112,46 @@ This lifecycle allows different users to see and manage only the operations rele
 
 
 
-Tech Stack : 
+# Tech Stack : 
 
-Frontend - 
+## Frontend - 
 
-React
+# React
 
-Vite
+# Vite
 
-React Router
+# React Router
 
-TanStack Query
+# TanStack Query
 
-Axios
+# Axios
 
-Firebase Authentication
+# Firebase Authentication
 
-Stripe Checkout
+# Stripe Checkout
 
-Tailwind CSS / DaisyUI
+# Tailwind CSS / DaisyUI
 
-JavaScript (JSX)
-
-
-
-Backend - 
-
-Node.js
-
-Express.js
-
-MongoDB
-
-Firebase Admin SDK
-
-Stripe
+# JavaScript (JSX)
 
 
 
-Deployment -
+## Backend - 
 
-Firebase Hosting — Frontend
+# Node.js
 
-Vercel — Backend
+# Express.js
+
+# MongoDB
+
+# Firebase Admin SDK
+
+# Stripe
+
+<br>
+
+## Deployment -
+
+# Firebase Hosting — Frontend
+
+# Vercel — Backend
