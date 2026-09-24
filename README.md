@@ -17,97 +17,97 @@
 ### 🎥 Project Demo (video url) -- [Add demo video URL]
 
 
-
+<br><br>
 
 # Core Features:
 
 ## User Features -
 
-# User registration and login
+### User registration and login
 
-# Firebase authentication
+### Firebase authentication
 
-# Social login
+### Social login
 
-# Create and manage parcels
+### Create and manage parcels
 
-# View personal parcel history
+### View personal parcel history
 
-# Track parcel delivery status
+### Track parcel delivery status
 
-# Make online payments through Stripe
+### Make online payments through Stripe
 
-# View payment history
+### View payment history
 
-# Access a personalized user dashboard
+### Access a personalized user dashboard
 
-# Apply to become a rider
+### Apply to become a rider
 
 <br>
 
 ## Rider Features - 
 
-# Rider-specific dashboard
+### Rider-specific dashboard
 
-# View assigned delivery tasks
+### View assigned delivery tasks
 
-# Accept/manage assigned parcels
+### Accept/manage assigned parcels
 
-# Update delivery progress
+### Update delivery progress
 
-# View completed delivery tasks
+### View completed delivery tasks
 
-# Rider approval workflow
+### Rider approval workflow
 
 <br>
 
 ## Admin Features - 
 
-# Dedicated admin dashboard
+### Dedicated admin dashboard
 
-# Manage users
+### Manage users
 
-# Manage rider applications
+### Manage rider applications
 
-# Approve riders
+### Approve riders
 
-# Assign riders to parcels
+### Assign riders to parcels
 
-# Monitor parcel operations
+### Monitor parcel operations
 
-# Role-based access to administrative features
+### Role-based access to administrative features
 
 <br>
 
 ## Payment System - 
 
-# Stripe Checkout integration
+### Stripe Checkout integration
 
-# Secure checkout-session creation
+### Secure checkout-session creation
 
-# Payment success/cancellation handling
+### Payment success/cancellation handling
 
-# Parcel/payment relationship tracking
+### Parcel/payment relationship tracking
 
 <br>
 
 ## Parcel Management - 
 
-A parcel can move through different stages of the delivery lifecycle, including:
+### A parcel can move through different stages of the delivery lifecycle, including:
 
-Parcel Created
+### Parcel Created
       ↓
-Payment
+### Payment
       ↓
-Rider Assigned
+### Rider Assigned
       ↓
-Rider Arriving
+### Rider Arriving
       ↓
-Picked Up
+### Picked Up
       ↓
-Delivered
+### Delivered
 
-This lifecycle allows different users to see and manage only the operations relevant to their role.
+### This lifecycle allows different users to see and manage only the operations relevant to their role.
 
 
 
@@ -116,42 +116,42 @@ This lifecycle allows different users to see and manage only the operations rele
 
 ## Frontend - 
 
-# React
+### React
 
-# Vite
+### Vite
 
-# React Router
+### React Router
 
-# TanStack Query
+### TanStack Query
 
-# Axios
+### Axios
 
-# Firebase Authentication
+### Firebase Authentication
 
-# Stripe Checkout
+### Stripe Checkout
 
-# Tailwind CSS / DaisyUI
+### Tailwind CSS / DaisyUI
 
-# JavaScript (JSX)
+### JavaScript (JSX)
 
 
 
 ## Backend - 
 
-# Node.js
+### Node.js
 
-# Express.js
+### Express.js
 
-# MongoDB
+### MongoDB
 
-# Firebase Admin SDK
+### Firebase Admin SDK
 
-# Stripe
+### Stripe
 
 <br>
 
 ## Deployment -
 
-# Firebase Hosting — Frontend
+### Firebase Hosting — Frontend
 
-# Vercel — Backend
+### Vercel — Backend
