@@ -1,6 +1,6 @@
-<h1> Introduction: <h1>
+Introduction:
 
-<h2 clasname="pb-30"> ZapShift — Role-Based Courier Delivery Platform. <h2>
+ ZapShift — Role-Based Courier Delivery Platform.
 
 A full-stack courier delivery management platform designed to connect customers, riders, and administrators through a secure, role-based workflow.
 
