@@ -100,9 +100,11 @@
 ### This lifecycle allows different users to see and manage only the operations relevant to their role.
 
 
+<br><br>
 
+# Tech Stack :
 
-# Tech Stack : 
+<br>
 
 ## Frontend - 
 
@@ -111,6 +113,8 @@
 ### Vite
 
 ### React Router
+### JavaScript (JSX)
+### Tailwind CSS / DaisyUI### Tailwind CSS / DaisyUI
 
 ### TanStack Query
 
@@ -120,11 +124,11 @@
 
 ### Stripe Checkout
 
-### Tailwind CSS / DaisyUI
-
-### JavaScript (JSX)
 
 
+### 
+
+<br>
 
 ## Backend - 
 
