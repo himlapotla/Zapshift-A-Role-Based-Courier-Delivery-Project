@@ -95,17 +95,7 @@
 
 ### A parcel can move through different stages of the delivery lifecycle, including:
 
-### Parcel Created
-      ↓
-### Payment
-      ↓
-### Rider Assigned
-      ↓
-### Rider Arriving
-      ↓
-### Picked Up
-      ↓
-### Delivered
+### Parcel Created -> Payment -> Rider Assigned -> Rider Arriving -> Parcel Picked Up -> Parcel Delivered
 
 ### This lifecycle allows different users to see and manage only the operations relevant to their role.
 
