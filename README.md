@@ -1,10 +1,8 @@
 # Introduction:
 
-### ZapShift — Role-Based Courier Delivery Platform.
+## ZapShift — Role-Based Courier Delivery Platform.
 
-A full-stack courier delivery management platform designed to connect customers, riders, and administrators through a secure, role-based workflow.
-
-ZapShift is a production-style courier management application built to model how a real delivery business can manage parcels from creation and payment to rider's delivery.&nbsp;&nbsp;
+### A full-stack courier delivery management platform designed to connect customers, riders, and administrators through a secure, role-based workflow. <br> ZapShift is a production-style courier management application built to model how a real delivery business can manage parcels from creation and payment to rider's delivery.&nbsp;&nbsp;
 
 
 
