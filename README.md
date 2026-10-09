@@ -91,7 +91,7 @@
 
 <br>
 
-## Parcel Management - 
+## Parcel Management (how the system works) - 
 
 ### A parcel can move through different stages of the delivery lifecycle, including:
 
@@ -123,6 +123,7 @@
 ### swiper
 ### Firebase Authentication
 ### Stripe Checkout
+### react-leaflet
 
 <br>
 
@@ -133,6 +134,8 @@
 ### MongoDB
 ### Firebase Admin SDK
 ### Stripe
+### cors
+### 
 
 <br>
 
@@ -140,3 +143,74 @@
 
 ### Firebase Hosting — Frontend
 ### Vercel — Backend
+
+<br><br>
+
+# Application Architecture
+
+### The frontend follows a feature-oriented React structure.
+
+### src/
+│
+├── assets/
+│
+├── components/
+│   └── Logo/
+│       └── Logo.jsx
+│
+├── Context/
+│   └── AuthContext/
+│       ├── AuthContext.jsx
+│       └── AuthProvider.jsx
+│
+├── firebase/
+│   └── firebase.init.js
+│
+├── hooks/
+│   ├── useAuth.jsx
+│   ├── useAxios.jsx
+│   ├── useAxiosSecurity.jsx
+│   └── useRole.jsx
+│
+├── layout/
+│   ├── AuthLayOut.jsx
+│   ├── DashBoardLayout.jsx
+│   └── RootLayOut.jsx
+│
+├── pages/
+│   │
+│   ├── About/
+│   ├── Auth/
+│   │   ├── Login/
+│   │   ├── Register/
+│   │   └── SocialLogin/
+│   │
+│   ├── Coverage/
+│   ├── Dashboard/
+│   │   ├── ApproveRider/
+│   │   ├── AssignRider/
+│   │   ├── DashBoardHome/
+│   │   ├── MyParcels/
+│   │   ├── Payment/
+│   │   ├── Rider'sPages/
+│   │   └── UserManagement/
+│   │
+│   ├── Home/
+│   │   ├── Banar/
+│   │   ├── brand/
+│   │   ├── Reviews/
+│   │   └── ServicesSection/
+│   │
+│   ├── ParcelTrack/
+│   ├── Rider/
+│   ├── SendParcel/
+│   └── Shared/
+│
+├── router/
+│   ├── AdminRoutes.jsx
+│   ├── PrivateRoutes.jsx
+│   ├── RiderRoutes.jsx
+│   └── router.jsx
+│
+├── index.css
+└── main.jsx
