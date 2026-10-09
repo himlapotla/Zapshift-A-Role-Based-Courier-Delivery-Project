@@ -1,6 +1,22 @@
+import { useQuery } from '@tanstack/react-query'
 import React from 'react'
+import UseAuth from '../../../hooks/UseAuth'
+import useAxiosSecurity from '../../../hooks/useAxiosSecurity'
 
 const RiderDashboardHome = () => {
+
+  const { user } = UseAuth()
+  const axios = useAxiosSecurity()
+
+  const { data } = useQuery({
+    queryKey: ['rider-parcle', user.email],
+    queryFn: async ()=> {
+      const res = await axios.get(`/rider-stat?email=${user?.email}`)
+      return res.data
+    }
+  })
+  console.log(data)
+
   return (
     <div className="min-h-[80vh] p-6">
 
@@ -22,7 +38,7 @@ const RiderDashboardHome = () => {
 
       {/* Quick Overview */}
       <div>
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">
+        <h2 className="text-2xl font-semibold text-[#81a909] mb-4">
           Quick Overview
         </h2>
 
@@ -30,17 +46,21 @@ const RiderDashboardHome = () => {
 
           {/* Assigned Parcels */}
           <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
-            <p className="text-sm text-gray-500">Assigned Parcels</p>
-            <h3 className="text-3xl font-bold text-gray-800 mt-2">--</h3>
+            <p className="text-sm text-gray-500">Your Parcels</p>
+            <h3 className="text-3xl  font-bold text-[#81a909] mt-2"> 
+              {data?.[0]?.totaParcel?.[0]?.count} 
+            </h3>
             <p className="text-sm text-gray-500 mt-2">
-              Parcels assigned to you
+              Total Parcels to you
             </p>
           </div>
 
           {/* Pending Deliveries */}
           <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
-            <p className="text-sm text-gray-500">Pending Deliveries</p>
-            <h3 className="text-3xl font-bold text-gray-800 mt-2">--</h3>
+            <p className="text-sm text-gray-500">Assigned Parcels</p>
+            <h3 className="text-3xl font-bold text-[#81a909] mt-2"> 
+              { data?.[0]?.assigned?.[0]?.count }
+            </h3>
             <p className="text-sm text-gray-500 mt-2">
               Deliveries waiting to be completed
             </p>
@@ -49,7 +69,9 @@ const RiderDashboardHome = () => {
           {/* Delivered Parcels */}
           <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
             <p className="text-sm text-gray-500">Delivered Parcels</p>
-            <h3 className="text-3xl font-bold text-gray-800 mt-2">--</h3>
+            <h3 className="text-3xl font-bold text-[#81a909] mt-2">
+              {data?.[0]?.delivered?.[0]?.count}
+            </h3>
             <p className="text-sm text-gray-500 mt-2">
               Successfully delivered
             </p>
@@ -58,7 +80,7 @@ const RiderDashboardHome = () => {
           {/* Today's Deliveries */}
           <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
             <p className="text-sm text-gray-500">Today's Deliveries</p>
-            <h3 className="text-3xl font-bold text-gray-800 mt-2">--</h3>
+            <h3 className="text-3xl font-bold text-[#81a909] mt-2"> 0 </h3>
             <p className="text-sm text-gray-500 mt-2">
               Deliveries completed today
             </p>
@@ -67,7 +89,9 @@ const RiderDashboardHome = () => {
           {/* Total Earnings */}
           <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
             <p className="text-sm text-gray-500">Total Earnings</p>
-            <h3 className="text-3xl font-bold text-gray-800 mt-2">$--</h3>
+            <h3 className="text-3xl font-bold text-[#81a909] mt-2">
+              ${ data?.[0]?.myEarning?.[0]?.totalEarning }
+            </h3>
             <p className="text-sm text-gray-500 mt-2">
               Your total delivery earnings
             </p>
@@ -76,7 +100,7 @@ const RiderDashboardHome = () => {
           {/* Delivery Rate */}
           <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
             <p className="text-sm text-gray-500">Delivery Rate</p>
-            <h3 className="text-3xl font-bold text-gray-800 mt-2">--%</h3>
+            <h3 className="text-3xl font-bold text-[#81a909] mt-2"> 40% | 50% </h3>
             <p className="text-sm text-gray-500 mt-2">
               Successfully completed deliveries
             </p>

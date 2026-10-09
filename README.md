@@ -51,7 +51,7 @@
 
 ### View assigned delivery tasks
 
-### Accept/manage assigned parcels
+### Accept/reject assigned parcels
 
 ### Update delivery progress
 
@@ -63,17 +63,17 @@
 
 ## Admin Features - 
 
+### Can manage overall bussiness logics
+
 ### Dedicated admin dashboard
 
-### Manage users
+### User Management
 
-### Manage rider applications
+### Rider Management
 
-### Approve riders
+### Assign riders to a parcel or multiple
 
-### Assign riders to parcels
-
-### Monitor parcel operations
+### Monitor parcel delivery operations
 
 ### Role-based access to administrative features
 
@@ -87,7 +87,7 @@
 
 ### Payment success/cancellation handling
 
-### Parcel/payment relationship tracking
+### Parcel's document manipulation on successful payment relationship tracking
 
 <br>
 
@@ -95,7 +95,11 @@
 
 ### A parcel can move through different stages of the delivery lifecycle, including:
 
-### Parcel Created -> Payment -> Rider Assigned -> Rider Arriving -> Parcel Picked Up -> Parcel Delivered
+### Case 1: Parcel Created by user -> User makes payment -> Rider will be assigned by admin ->  Rider Arriving -> Parcel Picked Up -> Parcel Delivered -> Rider's payment will be added
+
+### Case 2: Parcel Created by user -> User makes payment -> Rider will be assigned by admin -> Rider rejects the parcel -> Parcle again appears to admin dashboard for another assignment
+
+### Case 3: Parcel Created by user -> User makes payment -> User cancles the parcel -> parcel deleted from admin dashboard.  
 
 ### This lifecycle allows different users to see and manage only the operations relevant to their role.
 
@@ -109,37 +113,25 @@
 ## Frontend - 
 
 ### React
-
 ### Vite
-
 ### React Router
 ### JavaScript (JSX)
-### Tailwind CSS / DaisyUI### Tailwind CSS / DaisyUI
-
+### Tailwind CSS / DaisyUI
 ### TanStack Query
-
 ### Axios
-
+### sweetalert2
+### swiper
 ### Firebase Authentication
-
 ### Stripe Checkout
-
-
-
-### 
 
 <br>
 
 ## Backend - 
 
 ### Node.js
-
 ### Express.js
-
 ### MongoDB
-
 ### Firebase Admin SDK
-
 ### Stripe
 
 <br>
@@ -147,5 +139,4 @@
 ## Deployment -
 
 ### Firebase Hosting — Frontend
-
 ### Vercel — Backend

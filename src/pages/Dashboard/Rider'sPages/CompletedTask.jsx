@@ -1,4 +1,3 @@
-import React from 'react'
 import UseAuth from '../../../hooks/UseAuth'
 import useAxiosSecurity from '../../../hooks/useAxiosSecurity'
 import { useQuery } from '@tanstack/react-query'
@@ -17,23 +16,24 @@ const CompletedTask = () => {
   })
 
   const Payment = (parcel) => {
-    if (parcel.reciverDistrict === parcel.senderDistrict) {
-      return parcel.cost * 0.5
+    if( parcel.reciverDistrict === parcel.senderDistrict) {
+      return parcel.cost * 0.4
     }
     else {
-      return parcel.cost * 0.7
+      return parcel.cost * 0.5
     }
   }
 
   return (
     <div>
-      CompletedTask -- {parcel.length}
+      CompletedTask -- 
 
       <table className="table table-zebra">
 
         <thead>
           <tr className=''>
             <th>No.</th>
+            <th>Rider name</th>
             <th>Parcel Name</th>
             <th>Sender Dis</th>
             <th>Receiver Dis</th>
@@ -48,6 +48,7 @@ const CompletedTask = () => {
             parcel.map((p, i) =>
               <tr >
                 <td>{i + 1}</td>
+                <td>{p.rider_email}</td>
                 <td>{p.parcelName}</td>
                 <td>{p.senderDistrict}</td>
                 <td>{p.reciverDistrict}</td>

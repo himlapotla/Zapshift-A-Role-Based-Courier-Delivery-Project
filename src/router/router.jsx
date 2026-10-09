@@ -21,10 +21,10 @@ import AdminRoutes from "./AdminRoutes";
 import AssignRider from "../pages/Dashboard/AssignRider/AssignRider";
 import AssignedTasks from "../pages/Dashboard/Rider'sPages/AssignedTasks";
 import RiderRoutes from "./RiderRoutes";
-import CompletedTask from "../pages/Dashboard/Rider'sPages/CompletedTask";
 import ParcelTrack from "../pages/ParcelTrack/ParcelTrack";
 import DashboardHome from "../pages/Dashboard/DashBoardHome/DashboardHome";
 import About from "../pages/About/About";
+import CompletedTask from "../pages/Dashboard/Rider'sPages/CompletedTask";
 
 
 export const router = createBrowserRouter([
@@ -85,7 +85,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index : true,
-        element: <DashboardHome> </DashboardHome>
+        element: <DashboardHome> </DashboardHome> 
       },
       {
         path: 'my-parcels',
@@ -132,9 +132,9 @@ export const router = createBrowserRouter([
       },
       {
         path: 'completed-tasks',
-        element: <RiderRoutes> <CompletedTask> </CompletedTask> </RiderRoutes>
+        element:  <RiderRoutes> <CompletedTask> </CompletedTask> </RiderRoutes>
       }
     ]
-  }
+  } 
 
 ])
