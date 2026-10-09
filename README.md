@@ -150,34 +150,34 @@
 
 ### The frontend follows a feature-oriented React structure.
 
-### src/
+### src/ <br>
 │
-├── assets/
+├── assets/ <br>
 │
-├── components/
+├── components/ 
 │   └── Logo/
 │       └── Logo.jsx
 │
-├── Context/
+├── Context/ <br>
 │   └── AuthContext/
 │       ├── AuthContext.jsx
 │       └── AuthProvider.jsx
 │
-├── firebase/
+├── firebase/ <br>
 │   └── firebase.init.js
 │
-├── hooks/
+├── hooks/ <br>
 │   ├── useAuth.jsx
 │   ├── useAxios.jsx
 │   ├── useAxiosSecurity.jsx
 │   └── useRole.jsx
 │
-├── layout/
+├── layout/ <br>
 │   ├── AuthLayOut.jsx
 │   ├── DashBoardLayout.jsx
 │   └── RootLayOut.jsx
 │
-├── pages/
+├── pages/ <br>
 │   │
 │   ├── About/
 │   ├── Auth/
@@ -185,7 +185,7 @@
 │   │   ├── Register/
 │   │   └── SocialLogin/
 │   │
-│   ├── Coverage/
+│   ├── Coverage/ <br>
 │   ├── Dashboard/
 │   │   ├── ApproveRider/
 │   │   ├── AssignRider/
@@ -195,7 +195,7 @@
 │   │   ├── Rider'sPages/
 │   │   └── UserManagement/
 │   │
-│   ├── Home/
+│   ├── Home/ <br>
 │   │   ├── Banar/
 │   │   ├── brand/
 │   │   ├── Reviews/
@@ -206,7 +206,7 @@
 │   ├── SendParcel/
 │   └── Shared/
 │
-├── router/
+├── router/ <br>
 │   ├── AdminRoutes.jsx
 │   ├── PrivateRoutes.jsx
 │   ├── RiderRoutes.jsx
