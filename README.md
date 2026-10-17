@@ -149,10 +149,28 @@
 
 # Run the Frontend in your local computer
 
-### jjjj
+### step 1: first downlode the repository.
 
+### step 2: go to your command prompt and install all the dependencies with 'npm install'.
 
+### step 3: now start the vite server with 'npm run dev'.
 
+### step 4: you will see a blanck white page because some firebase credentials are required.
 
+### step 5: create a .env file.
 
-### ggggg
+### step 6: paste all this variable name in that file -- 
+
+#### VITE_apiKey=
+#### VITE_authDomain=
+#### VITE_projectId=
+#### VITE_storageBucket=
+#### VITE_messagingSenderId=
+#### VITE_appId=
+#### VITE_image_host=
+
+#### You nedd to create a firebase project by your own and must put all the ariable values reguarding every variable name.
+#### If you don't want to create then write any thing at VITE_apiKey as a value, project will stilll visuable. But you will not able to conduct so many activities.
+
+### step
+### step
