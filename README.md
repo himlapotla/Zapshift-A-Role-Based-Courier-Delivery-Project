@@ -144,73 +144,14 @@
 ### Firebase Hosting — Frontend
 ### Vercel — Backend
 
+
+
+
+
 <br><br>
 
-# Application Architecture
+# dffd
 
-### The frontend follows a feature-oriented React structure.
+<br><br>
 
-### src/ <br>
-│
-├── assets/ <br>
-│
-├── components/ 
-│   └── Logo/
-│       └── Logo.jsx
-│
-├── Context/ <br>
-│   └── AuthContext/
-│       ├── AuthContext.jsx
-│       └── AuthProvider.jsx
-│
-├── firebase/ <br>
-│   └── firebase.init.js
-│
-├── hooks/ <br>
-│   ├── useAuth.jsx
-│   ├── useAxios.jsx
-│   ├── useAxiosSecurity.jsx
-│   └── useRole.jsx
-│
-├── layout/ <br>
-│   ├── AuthLayOut.jsx
-│   ├── DashBoardLayout.jsx
-│   └── RootLayOut.jsx
-│
-├── pages/ <br>
-│   │
-│   ├── About/
-│   ├── Auth/
-│   │   ├── Login/
-│   │   ├── Register/
-│   │   └── SocialLogin/
-│   │
-│   ├── Coverage/ <br>
-│   ├── Dashboard/
-│   │   ├── ApproveRider/
-│   │   ├── AssignRider/
-│   │   ├── DashBoardHome/
-│   │   ├── MyParcels/
-│   │   ├── Payment/
-│   │   ├── Rider'sPages/
-│   │   └── UserManagement/
-│   │
-│   ├── Home/ <br>
-│   │   ├── Banar/
-│   │   ├── brand/
-│   │   ├── Reviews/
-│   │   └── ServicesSection/
-│   │
-│   ├── ParcelTrack/
-│   ├── Rider/
-│   ├── SendParcel/
-│   └── Shared/
-│
-├── router/ <br>
-│   ├── AdminRoutes.jsx
-│   ├── PrivateRoutes.jsx
-│   ├── RiderRoutes.jsx
-│   └── router.jsx
-│
-├── index.css
-└── main.jsx
+# hhhh
