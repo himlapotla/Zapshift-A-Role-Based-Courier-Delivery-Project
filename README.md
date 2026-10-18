@@ -149,19 +149,15 @@
 
 # Run the Frontend in your local computer
 
-### step 1: first downlode the repository.
+### step 1: first you must have installed Node.js. Then download the repository.
 
-### step 2: open in vs code. 
+### step 2: open the project in your vs code. 
 
 ### step 3: go to your command prompt and install all the dependencies with 'npm install'.
 
-### step 4: now start the vite server with 'npm run dev'.
-
-### step 5: you will see a blanck white page because some firebase credentials are required.
-
 ### step 6: create a .env file at root where the package.json file is located..
 
-### step 7: paste all this variable name in that file -- 
+### step 7: paste all this variable name in that .env file -- 
 
 #### VITE_apiKey=
 #### VITE_authDomain=
@@ -171,7 +167,8 @@
 #### VITE_appId=
 #### VITE_image_host=
 
-#### You need to create a firebase project by your own in the Firebase Console and register a web app. Copy the corresponding Firebase configuration values into your .env file.
-#### If you don't want to create then write any thing at VITE_apiKey as a value, project will stilll visuable. But you will not able to conduct so many activities.
+#### You need to create a firebase project by your own in the Firebase Console and register a web app, access the app with email password and google login. Copy the corresponding Firebase configuration values of your firebase project into your .env file.
 
-### step 8: yes!!! You are Done. Good Job.
+#### If you don't want to create then write any thing at VITE_apiKey as a value, project will stilll visible. But you will not be able to conduct so many activities.
+
+### step 8: Now start the vite server with 'npm run dev'. Yes!!! You are Done. Good Job.
